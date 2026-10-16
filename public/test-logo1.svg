@@ -1,0 +1,26 @@
+<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <linearGradient id='lr-emerald' x1='20' y1='20' x2='80' y2='80' gradientUnits='userSpaceOnUse'>
+      <stop offset='0%' stop-color='#6ee7b7'/>
+      <stop offset='45%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+    <radialGradient id='emerald-aura' cx='50%' cy='45%' r='65%'>
+      <stop offset='0%' stop-color='#10b981' stop-opacity='0.22'/>
+      <stop offset='100%' stop-color='#10b981' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  <rect x='3' y='3' width='94' height='94' rx='22' fill='#090a0f' stroke='#10b981' stroke-opacity='0.3' stroke-width='2'/>
+  <rect x='3' y='3' width='94' height='94' rx='22' fill='url(#emerald-aura)'/>
+  
+  <!-- L Component -->
+  <path d='M26 24V76H47' stroke='url(#lr-emerald)' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/>
+  
+  <!-- R Component -->
+  <path d='M53 24V76' stroke='url(#lr-emerald)' stroke-width='9' stroke-linecap='round'/>
+  <path d='M53 24H67C76 24 81 29.5 81 38C81 46.5 76 52 67 52H53' stroke='url(#lr-emerald)' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M63 52L79 76' stroke='url(#lr-emerald)' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/>
+  
+  <!-- AI Node Accent -->
+  <circle cx='67' cy='38' r='3' fill='#6ee7b7'/>
+</svg>

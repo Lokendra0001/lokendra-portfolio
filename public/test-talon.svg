@@ -1,0 +1,23 @@
+<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <linearGradient id='talon-grad' x1='10%' y1='10%' x2='90%' y2='90%'>
+      <stop offset='0%' stop-color='#6ee7b7'/>
+      <stop offset='40%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+    <radialGradient id='talon-glow' cx='50%' cy='45%' r='65%'>
+      <stop offset='0%' stop-color='#10b981' stop-opacity='0.25'/>
+      <stop offset='100%' stop-color='#10b981' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+
+  <!-- Deep Obsidian Rounded Squircle -->
+  <rect x='3' y='3' width='94' height='94' rx='22' fill='#090a0f' stroke='#10b981' stroke-opacity='0.35' stroke-width='1.5'/>
+  <rect x='3' y='3' width='94' height='94' rx='22' fill='url(#talon-glow)'/>
+
+  <!-- Wing 1: The 'L' Bracket Blade -->
+  <path d='M36 20L22 48V72C22 75.3 24.7 78 28 78H54C56.2 78 58 76.2 58 74V68C58 65.8 56.2 64 54 64H36V50L44 34L36 20Z' fill='url(#talon-grad)'/>
+
+  <!-- Wing 2: The 'R' Forward Loop & Kinetic Blade -->
+  <path fill-rule='evenodd' clip-rule='evenodd' d='M50 20C47.8 20 46 21.8 46 24V74C46 76.2 47.8 78 50 78H58C60.2 78 62 76.2 62 74V54H68L78.5 74.8C79.5 76.8 81.6 78 83.8 78H87.5C90.3 78 92.2 75.2 91 72.6L83.5 53.5C87.8 50.8 90.5 46.2 90.5 40C90.5 29.5 82 20 71 20H50ZM58 32V42H70.5C73.5 42 76 39.8 76 37C76 34.2 73.5 32 70.5 32H58Z' fill='url(#talon-grad)'/>
+</svg>

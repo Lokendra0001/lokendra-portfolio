@@ -1,0 +1,29 @@
+<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <linearGradient id='top-face' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#6ee7b7'/>
+      <stop offset='100%' stop-color='#10b981'/>
+    </linearGradient>
+    <linearGradient id='left-face' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='0%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+    <linearGradient id='right-face' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#059669'/>
+      <stop offset='100%' stop-color='#022c22'/>
+    </linearGradient>
+  </defs>
+  <!-- Isometric Cube / Hexagon composed of 3 faceted planes forming L and R -->
+  <!-- Top Face (Diamond) -->
+  <polygon points='50,14 82,32 50,50 18,32' fill='url(#top-face)'/>
+  <!-- Left Face (Forms the L upright) -->
+  <polygon points='18,32 50,50 50,86 18,68' fill='url(#left-face)'/>
+  <!-- Right Face (Forms the R forward volume) -->
+  <polygon points='50,50 82,32 82,68 50,86' fill='url(#right-face)'/>
+  
+  <!-- Negative Space Circuit / Cutout -->
+  <circle cx='50' cy='50' r='5' fill='#090a0f'/>
+  <line x1='50' y1='50' x2='50' y2='86' stroke='#090a0f' stroke-width='4'/>
+  <line x1='50' y1='50' x2='82' y2='32' stroke='#090a0f' stroke-width='4'/>
+  <line x1='50' y1='50' x2='18' y2='32' stroke='#090a0f' stroke-width='4'/>
+</svg>

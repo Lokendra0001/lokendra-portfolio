@@ -1,0 +1,28 @@
+<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <linearGradient id='d1-stem' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#34d399'/>
+      <stop offset='100%' stop-color='#059669'/>
+    </linearGradient>
+    <linearGradient id='d1-loop' x1='0%' y1='100%' x2='100%' y2='0%'>
+      <stop offset='0%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#6ee7b7'/>
+    </linearGradient>
+    <linearGradient id='d1-leg' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+  </defs>
+  
+  <!-- L: Architectural vertical bar + base plate -->
+  <path d='M22 22 H34 V66 H54 V78 H22 Z' fill='url(#d1-stem)'/>
+  
+  <!-- R: Upper Loop - floating rounded geometric plane -->
+  <path d='M44 22 H68 C78 22 84 28 84 37 C84 46 78 52 68 52 H44 V22 Z M54 32 V42 H66 C70 42 73 40 73 37 C73 34 70 32 66 32 H54 Z' fill='url(#d1-loop)'/>
+  
+  <!-- R: Dynamic Diagonal Blade (The Kick) -->
+  <path d='M58 50 L74 78 H60 L46 54 L58 50 Z' fill='url(#d1-leg)'/>
+  
+  <!-- AI Neural Spark Dot -->
+  <circle cx='76' cy='22' r='3.5' fill='#6ee7b7'/>
+</svg>

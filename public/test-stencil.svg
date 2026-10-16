@@ -1,0 +1,35 @@
+<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <!-- Emerald Gradient -->
+    <linearGradient id='sp-emerald' x1='15%' y1='10%' x2='85%' y2='90%'>
+      <stop offset='0%' stop-color='#6ee7b7'/>
+      <stop offset='40%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id='sp-accent' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#a7f3d0'/>
+      <stop offset='100%' stop-color='#34d399'/>
+    </linearGradient>
+    
+    <radialGradient id='sp-glow' cx='50%' cy='50%' r='60%'>
+      <stop offset='0%' stop-color='#10b981' stop-opacity='0.25'/>
+      <stop offset='100%' stop-color='#10b981' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+
+  <!-- Deep Obsidian Shield Badge -->
+  <rect x='3' y='3' width='94' height='94' rx='22' fill='#090a0f' stroke='#10b981' stroke-opacity='0.35' stroke-width='1.5'/>
+  <rect x='3' y='3' width='94' height='94' rx='22' fill='url(#sp-glow)'/>
+
+  <!-- Shape 1: Structural L with 45-deg bevel -->
+  <path d='M22 28L28 22H38V64H56V78H28L22 72V28Z' fill='url(#sp-emerald)'/>
+
+  <!-- Shape 2: Structural R with matching precision bevels -->
+  <!-- Upper loop with counter cutout -->
+  <path fill-rule='evenodd' clip-rule='evenodd' d='M48 22H72C81.5 22 88 28.5 88 37.5C88 45.5 82 51 74 52.2L86.5 73.5C87.8 75.8 86.2 78 83.5 78H72.5C70.8 78 69.2 77 68.2 75.2L58 54H56V78H46V24C46 22.9 46.9 22 48 22ZM58 33V43H71C74 43 76.5 41 76.5 38C76.5 35 74 33 71 33H58Z' fill='url(#sp-emerald)'/>
+  
+  <!-- Subtle glowing core node -->
+  <circle cx='71' cy='38' r='2.5' fill='url(#sp-accent)'/>
+</svg>

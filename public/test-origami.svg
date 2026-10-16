@@ -1,0 +1,47 @@
+<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <!-- L gradient: Deep architectural emerald -->
+    <linearGradient id='grad-L' x1='20' y1='20' x2='60' y2='80' gradientUnits='userSpaceOnUse'>
+      <stop offset='0%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+
+    <!-- R gradient: Radiant luminous emerald -->
+    <linearGradient id='grad-R' x1='40' y1='20' x2='85' y2='80' gradientUnits='userSpaceOnUse'>
+      <stop offset='0%' stop-color='#6ee7b7'/>
+      <stop offset='50%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#059669'/>
+    </linearGradient>
+
+    <!-- Ambient Occlusion Shadow -->
+    <filter id='drop-shadow' x='-10%' y='-10%' width='130%' height='130%'>
+      <feDropShadow dx='-2' dy='3' stdDeviation='2.5' flood-color='#000000' flood-opacity='0.6'/>
+    </filter>
+
+    <!-- Glow Filter -->
+    <filter id='emerald-glow' x='-20%' y='-20%' width='140%' height='140%'>
+      <feGaussianBlur stdDeviation='3' result='blur'/>
+      <feComposite in='SourceGraphic' in2='blur' operator='over'/>
+    </filter>
+  </defs>
+
+  <!-- Background Shield -->
+  <rect x='4' y='4' width='92' height='92' rx='22' fill='#090a0f' stroke='#10b981' stroke-opacity='0.3' stroke-width='1.5'/>
+
+  <!-- L Layer (Back Layer) -->
+  <path d='M26 24V76H52' stroke='url(#grad-L)' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/>
+
+  <!-- R Layer (Front Layer with Drop Shadow over L foot) -->
+  <g filter='url(#drop-shadow)'>
+    <!-- R Spine -->
+    <path d='M50 24V76' stroke='url(#grad-R)' stroke-width='10' stroke-linecap='round'/>
+    <!-- R Loop -->
+    <path d='M50 24H67C76.5 24 82 29.5 82 38C82 46.5 76.5 52 67 52H50' stroke='url(#grad-R)' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/>
+    <!-- R Diagonal Blade -->
+    <path d='M63 52L81 76' stroke='url(#grad-R)' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/>
+  </g>
+
+  <!-- High-Tech Neural Node on R junction -->
+  <circle cx='67' cy='38' r='3.5' fill='#a7f3d0' filter='url(#emerald-glow)'/>
+  <circle cx='67' cy='38' r='1.5' fill='#ffffff'/>
+</svg>

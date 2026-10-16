@@ -1,0 +1,22 @@
+<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <linearGradient id='d3-em' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#34d399'/>
+      <stop offset='50%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+    <radialGradient id='d3-glow' cx='50%' cy='50%' r='50%'>
+      <stop offset='0%' stop-color='#10b981' stop-opacity='0.4'/>
+      <stop offset='100%' stop-color='#10b981' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Subtle ambient glow -->
+  <circle cx='50' cy='50' r='42' fill='url(#d3-glow)'/>
+
+  <!-- Shape 1: The 'L' Bracket - Minimalist, bold, angled chamfer -->
+  <path d='M24 24 H37 V64 H60 V76 H24 Z' fill='url(#d3-em)'/>
+
+  <!-- Shape 2: The 'R' Monolith - Modern loop and razor-sharp diagonal slash -->
+  <path fill-rule='evenodd' clip-rule='evenodd' d='M46 24 H74 C83 24 89 29.5 89 38 C89 45.5 83.5 50.8 75.5 51.8 L88 76 H73 L62 54 H57 V76 H46 V24 Z M57 34 V44 H72 C75 44 77 42 77 39 C77 36 75 34 72 34 H57 Z' fill='url(#d3-em)'/>
+</svg>

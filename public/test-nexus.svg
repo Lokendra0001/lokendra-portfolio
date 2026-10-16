@@ -1,0 +1,21 @@
+<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <linearGradient id='nexus-grad' x1='15%' y1='10%' x2='85%' y2='90%'>
+      <stop offset='0%' stop-color='#6ee7b7'/>
+      <stop offset='45%' stop-color='#10b981'/>
+      <stop offset='100%' stop-color='#047857'/>
+    </linearGradient>
+    <linearGradient id='slash-grad' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#a7f3d0'/>
+      <stop offset='100%' stop-color='#10b981'/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left: Stylized L that echoes a '<' bracket -->
+  <!-- Top anchor down to vertex, then horizontal foot -->
+  <path d='M34 22 L22 48 L22 74 C22 76.2 23.8 78 26 78 H46 C48.2 78 50 76.2 50 74 V68 C50 65.8 48.2 64 46 64 H34 V48 L42 30 C43 27.8 42 25 39.8 24 L34 22 Z' fill='url(#nexus-grad)'/>
+
+  <!-- Right: Stylized R that echoes a '>' bracket -->
+  <!-- Spine, loop, and forward strut -->
+  <path fill-rule='evenodd' clip-rule='evenodd' d='M56 22 C53.8 22 52 23.8 52 26 V74 C52 76.2 53.8 78 56 78 H64 C66.2 78 68 76.2 68 74 V54 H72 L81.5 74.5 C82.5 76.6 84.6 78 87 78 H90 C92.8 78 94.8 75.3 93.7 72.7 L86 53 C89.8 50.5 92 46.2 92 40.5 C92 30.3 84 22 73.5 22 H56 Z M64 34 V42 H73 C75.5 42 77.5 40 77.5 38 C77.5 36 75.5 34 73 34 H64 Z' fill='url(#nexus-grad)'/>
+</svg>
