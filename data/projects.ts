@@ -4,13 +4,13 @@ export type ProjectStatus =
   | 'Demo Store'
   | 'Independent Project'
   | 'Client Project'
+  | 'NPM Package'
+  | 'Package'
 
 export type ProjectCategory =
-  | 'business-websites'
-  | 'shopify-ecommerce'
   | 'mern-applications'
-  | 'dashboards'
-  | 'ui-concepts'
+  | 'packages'
+  | 'web-applications'
 
 export type PreviewVariant = 'salon' | 'store' | 'dashboard' | 'tasks'
 
@@ -30,251 +30,310 @@ export type Project = {
   features: string[]
   stack: string[]
   decisions: { title: string; detail: string }[]
-  /** Only add entries you have genuinely encountered and documented. */
   challenges: { challenge: string; solution: string }[]
   nextSteps: string[]
-  /** Honest note about what is real vs. sample / frontend-only. */
   dataNote: string
   preview: PreviewVariant
-  /** Leave empty until the deployment or repository is public. */
+  /** Screenshot shown in light theme (and in dark theme when imageDark is not set) */
+  image?: string
+  /** Optional screenshot for dark theme */
+  imageDark?: string
+  /** Live deployment URL */
   liveUrl: string
+  /** Source code repository URL */
   repoUrl: string
+  /** LinkedIn showcase URL */
+  linkedinUrl?: string
   relatedService: string
 }
 
 export const projectCategories: { id: ProjectCategory; label: string }[] = [
-  { id: 'business-websites', label: 'Business Websites' },
-  { id: 'shopify-ecommerce', label: 'Shopify & Ecommerce' },
   { id: 'mern-applications', label: 'MERN Applications' },
-  { id: 'dashboards', label: 'Dashboards' },
-  { id: 'ui-concepts', label: 'UI Concepts' },
+  { id: 'packages', label: 'NPM Packages' },
+  { id: 'web-applications', label: 'Web Applications' },
 ]
 
 export const projects: Project[] = [
   {
-    slug: 'salon-website-concept',
-    title: "Darshan's Hairport — Website Concept",
-    status: 'Concept Project',
-    type: 'Business Website',
-    categories: ['business-websites', 'ui-concepts'],
+    slug: 'veloxchat-realtime-chat',
+    title: 'VeloxChat — Real-Time Messaging Platform',
+    status: 'Personal Project',
+    type: 'Full-Stack MERN Web Application',
+    categories: ['mern-applications', 'web-applications'],
     featured: true,
+    image: '/images/projects/veloxchat.png',
     summary:
-      'A concept website showing how a local salon or barbershop could present services, photos, location, and WhatsApp inquiries.',
+      'High-performance real-time messaging application with bi-directional WebSocket communication, instant delivery status, and responsive dark-mode UI.',
     overview:
-      'This concept explores how a neighbourhood salon or barbershop could build a credible online presence with a fast, mobile-first website. It focuses on the information visitors look for first: services, how to get there, and how to get in touch.',
+      'VeloxChat is an instantaneous collaboration application engineered with React, Node.js, and WebSocket architecture. Designed to handle concurrent live conversations with low latency and clean message delivery.',
     scenario:
-      'Many local salons rely on word of mouth and social media posts. Visitors searching on their phones often struggle to find a clear list of services, opening details, directions, or a quick way to ask a question. This concept addresses that scenario using clearly marked sample content.',
+      'Remote teams and distributed developers frequently deal with cumbersome, slow messaging clients. VeloxChat was created to deliver an agile, ultra-responsive chatting experience with instant notification and presence indicators.',
     goals: [
-      'Present services in a clear, scannable format',
-      'Make directions and contact options reachable in one tap on mobile',
-      'Create a premium visual identity appropriate for a grooming business',
-      'Lay a basic on-page SEO foundation for local discovery',
+      'Enable sub-50ms bi-directional message dispatch using Socket.io and Node.js',
+      'Create an intuitive, mobile-first dark UI that feels responsive and distraction-free',
+      'Support user sessions, room management, and persistent message history with MongoDB',
+      'Deploy full-stack architecture with production reliability on Vercel',
     ],
     intendedUsers: [
-      'Local customers browsing on their phones',
-      'New visitors comparing nearby salons',
-      'Returning customers looking for contact details',
+      'Remote teams needing lightweight communication',
+      'Developers collaborating on code and tasks',
+      'Community members joining dedicated topic rooms',
     ],
     designDirection:
-      'Charcoal, black, warm gold, and off-white with elegant serif headings and generous spacing to suggest a calm, premium in-store experience.',
+      'Emerald neon highlights over deep space obsidian background, minimal clutter, intuitive channel drawer, and clean chat bubbles with timestamps.',
     features: [
-      'Salon-inspired visual design',
-      'Service presentation with sample categories',
-      'Photo gallery layout',
-      'Business introduction section',
-      'Contact information block',
-      'Google Maps directions embed',
-      'WhatsApp inquiry call-to-action',
-      'Responsive mobile layout',
-      'Basic SEO structure and metadata',
+      'Real-time bi-directional messaging with Socket.io',
+      'Online user presence and typing activity indicators',
+      'Group channels and direct peer messaging',
+      'Persistent MongoDB message storage and pagination',
+      'JWT session management and secure authentication',
+      'Fluid responsive mobile drawer and desktop multi-column view',
     ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Google Maps Embed', 'WhatsApp Click-to-Chat'],
+    stack: ['React', 'Node.js', 'Express.js', 'Socket.IO', 'MongoDB', 'Tailwind CSS', 'Vercel'],
     decisions: [
       {
-        title: 'Mobile-first contact actions',
+        title: 'Event-driven Socket pooling',
         detail:
-          'Call, WhatsApp, and directions buttons are prioritised near the top of the mobile layout because those are the most common actions for a local business visitor.',
+          'Used room-scoped socket broadcasts to avoid unnecessary message traffic to idle users across different channels.',
       },
       {
-        title: 'Static generation',
+        title: 'Optimistic UI message insertion',
         detail:
-          'Content rarely changes, so pages are statically generated for fast loading and low hosting overhead.',
-      },
-      {
-        title: 'Sample content only',
-        detail:
-          'All copy, services, and imagery are placeholders. No business details are published without confirmation and approval.',
+          'Messages appear immediately in the sender timeline before server round-trip acknowledgement for instantaneous feel.',
       },
     ],
-    challenges: [],
+    challenges: [
+      {
+        challenge: 'Re-establishing socket connection on mobile network toggling',
+        solution:
+          'Configured automatic exponential backoff reconnection with state reconciliation to catch up on missed messages.',
+      },
+    ],
     nextSteps: [
-      'Add an online booking integration if a business requests one',
-      'Connect a lightweight CMS so the owner can update services and prices',
-      'Add structured data once real, verified business details are available',
+      'Add end-to-end client-side encryption for 1-on-1 private messaging',
+      'Introduce media file upload and image previews via cloud storage',
     ],
     dataNote:
-      'Concept project with sample content. It does not represent, and is not endorsed by, any real business.',
-    preview: 'salon',
-    liveUrl: '',
-    repoUrl: '',
-    relatedService: 'business-websites',
-  },
-  {
-    slug: 'shopify-storefront-demo',
-    title: 'Modern Shopify Store — Demo',
-    status: 'Demo Store',
-    type: 'Ecommerce Storefront',
-    categories: ['shopify-ecommerce', 'ui-concepts'],
-    featured: true,
-    summary:
-      'A storefront prototype demonstrating homepage, collections, product detail, navigation, and cart interface patterns.',
-    overview:
-      'A demonstration storefront built to show consistent ecommerce design and the key templates a typical store needs: homepage, collection listing, product detail, navigation, and a cart drawer.',
-    scenario:
-      'Small brands launching online often need a storefront that feels trustworthy and is easy to browse on mobile. This demo explores those patterns using fictional sample products.',
-    goals: [
-      'Demonstrate a clear browsing path from homepage to product to cart',
-      'Show consistent typography, spacing, and product card design',
-      'Make collection navigation and filtering easy on small screens',
-    ],
-    intendedUsers: ['Shoppers browsing on mobile and desktop', 'Store owners evaluating storefront layouts'],
-    designDirection:
-      'Clean, product-forward layout with neutral backgrounds, large imagery areas, and a single accent colour for primary actions.',
-    features: [
-      'Homepage with featured collections',
-      'Product listing grid',
-      'Product detail layout with variant selection',
-      'Collection pages',
-      'Header navigation and mobile menu',
-      'Cart drawer interface',
-      'Responsive layouts',
-    ],
-    stack: ['Shopify', 'Liquid', 'JavaScript', 'CSS', 'Shopify Theme Editor'],
-    decisions: [
-      {
-        title: 'Theme-editor friendly sections',
-        detail:
-          'Sections are structured so a store owner can reorder and edit content from the Shopify theme editor without touching code.',
-      },
-      {
-        title: 'Mobile-first product cards',
-        detail: 'Product cards keep price and title readable at small sizes and avoid hover-only interactions.',
-      },
-    ],
-    challenges: [],
-    nextSteps: [
-      'Connect real product data via the Storefront API',
-      'Add product filtering by multiple attributes',
-      'Test checkout flow end-to-end on a live development store',
-    ],
-    dataNote:
-      'Storefront prototype using fictional products. There is no real inventory, customer reviews, or payment processing.',
-    preview: 'store',
-    liveUrl: '',
-    repoUrl: '',
-    relatedService: 'shopify-development',
-  },
-  {
-    slug: 'business-operations-dashboard',
-    title: 'Business Operations Dashboard',
-    status: 'Personal Project',
-    type: 'MERN Web Application',
-    categories: ['mern-applications', 'dashboards'],
-    featured: true,
-    summary:
-      'An admin dashboard demonstrating data tables, search, filters, CRUD workflows, form validation, and charts on sample data.',
-    overview:
-      'A personal project exploring how a small business could manage everyday records — such as orders, products, or customers — from a single admin dashboard built on the MERN stack.',
-    scenario:
-      'Small teams often manage operations in spreadsheets that become hard to search, share, and keep consistent. This project explores a structured alternative using sample data.',
-    goals: [
-      'Build reusable data-table, form, and filter components',
-      'Implement create, read, update, and delete workflows against a REST API',
-      'Validate input on both client and server',
-      'Present summary information with simple charts',
-    ],
-    intendedUsers: ['Business owners', 'Operations staff', 'Administrators managing records'],
-    designDirection:
-      'Dense but readable dashboard layout with a persistent sidebar, clear table hierarchy, and restrained colour reserved for status and actions.',
-    features: [
-      'Dashboard overview with summary cards',
-      'Searchable, filterable data tables',
-      'Create, read, update, and delete workflows',
-      'Forms with validation and error messages',
-      'Charts based on sample data',
-      'REST API integration',
-      'Responsive layout',
-    ],
-    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Tailwind CSS'],
-    decisions: [
-      {
-        title: 'Shared validation schema',
-        detail: 'Validation rules are defined once and reused by the API and the forms to keep behaviour consistent.',
-      },
-      {
-        title: 'Server-side pagination and filtering',
-        detail: 'Filtering happens in the API so the interface stays fast as the dataset grows.',
-      },
-    ],
-    challenges: [],
-    nextSteps: [
-      'Add authentication and role-based access',
-      'Add CSV export for filtered views',
-      'Write integration tests for API endpoints',
-    ],
-    dataNote: 'Uses generated sample data only. It contains no real customer or business information.',
-    preview: 'dashboard',
-    liveUrl: '',
-    repoUrl: '',
+      'Live full-stack deployment hosted on Vercel with real-time socket connectivity.',
+    preview: 'tasks',
+    liveUrl: 'https://veloxchat.vercel.app',
+    repoUrl: 'https://github.com/Lokendra0001/VeloxChat',
+    linkedinUrl: 'https://www.linkedin.com/in/lokendrarajpurohit',
     relatedService: 'mern-development',
   },
   {
-    slug: 'taskflow-task-management',
-    title: 'TaskFlow — Task Management Demo',
+    slug: 'jobhunt-recruitment-platform',
+    title: 'JobHunt — Full-Stack Recruitment Portal',
     status: 'Personal Project',
     type: 'MERN Web Application',
-    categories: ['mern-applications', 'ui-concepts'],
-    featured: false,
+    categories: ['mern-applications', 'web-applications'],
+    featured: true,
+    image: '/images/projects/jobhunt.png',
     summary:
-      'A task management app with a board view, priorities, due dates, status tracking, and filtering.',
+      'Comprehensive recruitment platform connecting job seekers with verified employers, featuring real-time application tracking and recruiter admin dashboards.',
     overview:
-      'TaskFlow is a personal project exploring task creation, prioritisation, and status tracking with a responsive board and list view.',
+      'JobHunt is an end-to-end hiring portal built on the MERN stack with Redux state management. Provides job posting tools for recruiters and advanced search, filtering, and application workflows for candidates.',
     scenario:
-      'Small teams and individuals need a lightweight way to track work without the complexity of enterprise tools. TaskFlow explores the essential features for that use case.',
+      'Job seekers often struggle with cluttered job boards and opaque hiring updates, while employers spend excessive time filtering unqualified applicants. JobHunt streamlines job discovery and application tracking into a focused, modern interface.',
     goals: [
-      'Support creating, editing, and moving tasks between statuses',
-      'Make priorities and due dates visible at a glance',
-      'Provide filtering by status, priority, and due date',
+      'Deliver a streamlined dual-role system for candidates and hiring managers',
+      'Implement fast full-text job search with location, salary, and job-type filtering',
+      'Manage complex multi-step application states with Redux Toolkit',
+      'Provide recruiters with candidate evaluation and status management dashboards',
     ],
-    intendedUsers: ['Individuals organising personal work', 'Small teams coordinating tasks'],
+    intendedUsers: [
+      'Job seekers filtering career opportunities',
+      'Recruiters creating and managing job postings',
+      'Hiring teams reviewing candidate resumes and interview stages',
+    ],
     designDirection:
-      'Calm, focused interface with column-based boards, compact cards, and colour-coded priority labels with text equivalents for accessibility.',
+      'Modern professional layout with crisp card typography, status badges, scannable salary tags, and structured employer detail views.',
     features: [
-      'Task creation and editing',
-      'Status tracking across board columns',
-      'Priority labels',
-      'Due dates',
-      'Board and list views',
-      'Filtering',
-      'Responsive dashboard',
+      'Candidate resume submission and application history tracking',
+      'Employer dashboard with applicant status management',
+      'Multi-filter search (remote, full-time, salary ranges, skills)',
+      'Role-based access control (Admin, Recruiter, Applicant)',
+      'Redux-powered reactive filtering and state management',
+      'Responsive design across mobile and desktop devices',
     ],
-    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+    stack: ['React', 'Redux Toolkit', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
     decisions: [
       {
-        title: 'Accessible priority indicators',
-        detail: 'Priority is communicated with both colour and text so it remains clear for all users.',
+        title: 'Redux Toolkit state slice architecture',
+        detail:
+          'Separated user auth, job listings, and applicant data into isolated slices with async thunks for predictable state transitions.',
       },
       {
-        title: 'Keyboard-friendly status changes',
-        detail: 'Tasks can change status through a menu as well as drag-and-drop, so the board works without a mouse.',
+        title: 'Compound indexing in MongoDB',
+        detail:
+          'Created compound indexes on job category, location, and post date to ensure instant search queries under large datasets.',
+      },
+    ],
+    challenges: [
+      {
+        challenge: 'Synchronizing applicant review status across both candidate and recruiter views',
+        solution:
+          'Implemented optimistic state updates in Redux with server verification to keep status labels consistent.',
+      },
+    ],
+    nextSteps: [
+      'Implement automated email alerts for matching job postings',
+      'Add PDF resume parsing for auto-filling profile credentials',
+    ],
+    dataNote:
+      'Complete live deployment on Vercel with REST API backend and MongoDB Atlas database.',
+    preview: 'dashboard',
+    liveUrl: 'https://jobhunt-pi-nine.vercel.app',
+    repoUrl: 'https://github.com/Lokendra0001/JobHunt',
+    linkedinUrl: 'https://www.linkedin.com/in/lokendrarajpurohit',
+    relatedService: 'mern-development',
+  },
+  {
+    slug: 'cineverse-movie-platform',
+    title: 'Cineverse — Movie Discovery & Entertainment Platform',
+    status: 'Personal Project',
+    type: 'Entertainment Web Application',
+    categories: ['mern-applications', 'web-applications'],
+    featured: true,
+    image: '/images/projects/cineverse.png',
+    summary:
+      'Interactive entertainment portal for discovering trending movies and TV shows, browsing cast catalogs, streaming previews, and exploring cinema recommendations.',
+    overview:
+      'Cineverse is a dynamic entertainment exploration platform built with React, Redux, and modern styling. Delivers seamless catalog navigation, rich movie detail overviews, and responsive streaming interfaces.',
+    scenario:
+      'Movie lovers need an intuitive, distraction-free space to browse trending titles, watch previews, and manage their watchlists across multiple genres.',
+    goals: [
+      'Build responsive media catalog with search, filter, and genre categorization',
+      'Manage global search and watchlist bookmarks with Redux Toolkit',
+      'Provide fluid dark-mode cinematic interface optimized for high engagement',
+    ],
+    intendedUsers: [
+      'Cinema enthusiasts and streaming watchers',
+      'Users looking for personalized movie recommendations',
+    ],
+    designDirection:
+      'Deep cinema dark theme with radiant golden accents, high-contrast poster cards, and immersive full-bleed preview layouts.',
+    features: [
+      'Live keyword search and category filtering for movies and TV shows',
+      'Interactive movie details with genre tags and descriptions',
+      'Global state management with Redux Toolkit',
+      'Responsive dark cinema UI across all viewports',
+    ],
+    stack: ['React', 'Redux Toolkit', 'Tailwind CSS', 'Vite', 'RESTful APIs', 'Vercel'],
+    decisions: [
+      {
+        title: 'Centralized Redux search slice',
+        detail:
+          'Routed keyword queries through a single store slice to instantly synchronize cross-page movie results.',
       },
     ],
     challenges: [],
-    nextSteps: ['Add shared workspaces', 'Add due-date reminders', 'Add activity history for each task'],
-    dataNote: 'Demo data only. Persistence details should be confirmed in the repository README.',
-    preview: 'tasks',
+    nextSteps: ['Add ticket booking seat-selection visualization', 'Integrate trailer video player modals'],
+    dataNote: 'Showcased on LinkedIn profile.',
+    preview: 'dashboard',
     liveUrl: '',
     repoUrl: '',
+    linkedinUrl: 'https://www.linkedin.com/in/lokendrarajpurohit',
+    relatedService: 'mern-development',
+  },
+  {
+    slug: 'travelvista-tour-travel-portal',
+    title: 'TravelVista — Tour & Travel Exploration Agency',
+    status: 'Personal Project',
+    type: 'Tour & Travel Web Application',
+    categories: ['mern-applications', 'web-applications'],
+    featured: true,
+    image: '/images/projects/travelvista.png',
+    summary:
+      'Full-stack tour and travel agency platform featuring AI trip planning, hotel discovery, vacation rental booking, verified reviews, and interactive adventure guides.',
+    overview:
+      'TravelVista is an adventure discovery and travel booking web platform designed to help travelers find destinations, explore recommended hotels, and organize custom itineraries with AI assistance.',
+    scenario:
+      'Travelers require a modern, comprehensive agency experience that unifies accommodation search, destination guides, and tour reservations into a single smooth flow.',
+    goals: [
+      'Provide destination search with hotel, flight, and restaurant categories',
+      'Integrate AI trip builder recommendations for customized itineraries',
+      'Create high-converting, visually rich layout with editorial destination highlights',
+    ],
+    intendedUsers: [
+      'Travelers exploring holiday destinations and hotel reservations',
+      'Tour agency clients booking custom vacation packages',
+    ],
+    designDirection:
+      'Fresh travel lifestyle aesthetic with emerald call-to-actions, clean editorial typography, and high-resolution destination showcases.',
+    features: [
+      'Multi-category exploration: Hotels, Flights, Restaurants, Vacation Rentals',
+      'AI Trip Builder feature for generating instant travel ideas',
+      'Traveler review ratings and curated Best of the Best hotel lists',
+      'Full responsive experience across mobile and desktop devices',
+    ],
+    stack: ['React', 'Next.js', 'Node.js', 'Express.js', 'Tailwind CSS', 'Vercel'],
+    decisions: [
+      {
+        title: 'Modular category navigation',
+        detail:
+          'Structured travel categories into independent filters to support rapid browsing without full page refreshes.',
+      },
+    ],
+    challenges: [],
+    nextSteps: ['Connect Stripe Checkout for online deposit payments', 'Add downloadable PDF booking invoices'],
+    dataNote: 'Live deployment running on Vercel.',
+    preview: 'salon',
+    liveUrl: 'https://travelvista-ten.vercel.app',
+    repoUrl: 'https://github.com/Lokendra0001/TravelVista',
+    linkedinUrl: 'https://www.linkedin.com/in/lokendrarajpurohit',
+    relatedService: 'mern-development',
+  },
+  {
+    slug: 'create-mern-boilerkit-npm',
+    title: 'create-mern-boilerkit — CLI Boilerplate Generator',
+    status: 'NPM Package',
+    type: 'NPM Package',
+    categories: ['packages', 'mern-applications'],
+    featured: true,
+    image: '/images/projects/create-mern-boilerkit-light.png',
+    imageDark: '/images/projects/create-mern-boilerkit.png',
+    summary:
+      'Production-ready CLI starter kit published on npm to instantly scaffold a modern MERN boilerplate with Express, JWT authentication, Mongoose, and React + Vite.',
+    overview:
+      'create-mern-boilerkit is an open-source CLI utility distributed through npm and npx. It allows developers to generate a production-ready, fully architected MERN stack project in seconds with a single terminal command.',
+    scenario:
+      'Setting up a new full-stack MERN application often requires hours of repetitive scaffolding for backend routing, JWT auth, MongoDB connections, CORS, and Vite configs. create-mern-boilerkit automates this completely.',
+    goals: [
+      'Enable instant zero-config project bootstrapping via `npx create-mern-boilerkit <app-name>`',
+      'Provide a complete backend JWT authentication system with bcrypt password hashing',
+      'Include a clean, responsive React 18 + Vite frontend with Tailwind CSS and Axios pre-configured',
+      'Maintain an active open-source npm package with clean documentation and version releases',
+    ],
+    intendedUsers: [
+      'Full-stack developers bootstrapping new web apps',
+      'Students and engineers learning production MERN architecture',
+      'Teams prototyping new MVPs in minutes',
+    ],
+    designDirection:
+      'Terminal and CLI developer experience with colored logging, step-by-step progress spinners, and clear directory tree structure.',
+    features: [
+      'Single-command scaffolding: `npx create-mern-boilerkit my-app`',
+      'Complete Express backend with user signup, signin, and JWT verification middleware',
+      'Modular React 18 + Vite frontend with React Router DOM and Axios utilities',
+      'Pre-configured MongoDB Mongoose connection and environment variable templates',
+      'Published and actively maintained on the public npm registry',
+    ],
+    stack: ['Node.js', 'CLI', 'NPM Package', 'Express.js', 'MongoDB', 'React 18', 'Vite', 'JWT Authentication'],
+    decisions: [
+      {
+        title: 'NPM bin execution with npx',
+        detail:
+          'Configured executable bin entry in package.json to enable global npx execution without requiring local installation.',
+      },
+    ],
+    challenges: [],
+    nextSteps: ['Add optional TypeScript template flag', 'Support Docker compose generation'],
+    dataNote: 'Published package available worldwide on npm registry.',
+    preview: 'dashboard',
+    liveUrl: 'https://www.npmjs.com/package/create-mern-boilerkit',
+    repoUrl: 'https://github.com/Lokendra0001/mern-boiler-template',
+    linkedinUrl: 'https://www.linkedin.com/in/lokendrarajpurohit',
     relatedService: 'mern-development',
   },
 ]

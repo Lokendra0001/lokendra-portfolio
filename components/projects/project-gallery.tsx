@@ -109,7 +109,7 @@ export function ProjectGallery() {
       </p>
 
       {results.length > 0 ? (
-        <ul className="mt-4 grid gap-6 md:grid-cols-2">
+        <ul className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((project) => (
             <li key={project.slug}>
               <ProjectCard project={project} headingLevel="h3" />

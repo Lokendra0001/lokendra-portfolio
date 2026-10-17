@@ -20,15 +20,20 @@ export function CtaSection({
 }: CtaSectionProps) {
   return (
     <section aria-labelledby="cta-heading" className="container-page py-20 md:py-28">
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-card px-6 py-14 text-center md:px-12 md:py-20">
-        <div className="ambient-glow pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="bg-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
-        <div className="relative mx-auto max-w-2xl 2xl:max-w-3xl">
-          <h2 id="cta-heading" className="text-3xl font-semibold leading-tight md:text-4xl 2xl:text-5xl">
-            {title}
-          </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground md:text-lg 2xl:text-xl">{description}</p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-linear-to-br from-primary/[0.14] via-card to-card px-6 py-12 md:px-12 md:py-16">
+        <div
+          className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-primary/20 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="bg-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
+        <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 id="cta-heading" className="text-2xl font-semibold leading-tight sm:text-3xl 2xl:text-4xl">
+              {title}
+            </h2>
+            <p className="mt-3 text-pretty leading-relaxed text-muted-foreground md:text-lg">{description}</p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
             <ButtonLink href={primaryHref} size="lg">
               {primaryLabel}
               <ArrowRight className="size-4" aria-hidden="true" />

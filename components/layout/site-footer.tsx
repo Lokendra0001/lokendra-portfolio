@@ -39,7 +39,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border">
-        <div className="container-page flex flex-col items-start justify-between gap-3 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center">
+        <div className="container-page flex flex-col items-start justify-between gap-3 pt-6 pb-24 text-sm text-muted-foreground sm:flex-row sm:items-center md:pb-6">
           <p>
             &copy; {year} {siteConfig.name}. All rights reserved.
           </p>

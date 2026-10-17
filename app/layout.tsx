@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsAppFloat } from "@/components/common/whatsapp-float";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        <WhatsAppFloat />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>

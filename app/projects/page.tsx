@@ -5,9 +5,9 @@ import { CtaSection } from '@/components/common/cta-section'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Projects & Case Studies',
+  title: 'Projects & Open Source',
   description:
-    'Explore personal, concept, and demo projects across business websites, Shopify storefronts, and custom MERN web applications.',
+    'Explore full-stack MERN web applications, real-time messaging platforms, and published open-source NPM packages built by Lokendra Rajpurohit.',
   path: '/projects',
 })
 
@@ -16,8 +16,8 @@ export default function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Portfolio"
-        title="Personal, concept, and demonstration projects."
-        description="Every project below is honestly labelled to reflect its scope and purpose — from business website concepts and Shopify demo stores to custom MERN web applications."
+        title="Projects & Open Source Work."
+        description="Explore full-stack MERN web applications, real-time communication platforms, tour exploration systems, and published NPM packages."
         breadcrumbs={[{ label: 'Projects' }]}
       />
 

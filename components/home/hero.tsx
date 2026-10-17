@@ -1,7 +1,7 @@
-import { ArrowRight } from 'lucide-react'
-import { ButtonLink } from '@/components/common/button-link'
+import { ArrowRight, Download } from 'lucide-react'
+import { ButtonLink, buttonClasses } from '@/components/common/button-link'
 import { ProjectPreview } from '@/components/projects/project-preview'
-import { siteConfig } from '@/lib/site-config'
+import { isConfigured, siteConfig } from '@/lib/site-config'
 import { HERO_CONTENT } from '@/config/constant'
 
 function CodePanel() {
@@ -77,7 +77,7 @@ export function HomeHero() {
           </p>
           <h1
             id="hero-heading"
-            className="mt-6 text-4xl font-semibold leading-[1.05] text-foreground sm:text-5xl lg:text-6xl 2xl:text-7xl"
+            className="mt-6 text-3xl font-semibold leading-[1.1] text-foreground sm:text-4xl xl:text-5xl 2xl:text-6xl"
           >
             Websites and Web Applications Built for{' '}
             <span className="text-primary">Real Business Needs.</span>
@@ -92,6 +92,11 @@ export function HomeHero() {
             <ButtonLink href="/projects" variant="secondary" size="lg">
               View My Work
             </ButtonLink>
+            {isConfigured(siteConfig.resumeUrl) && (
+              <a href={siteConfig.resumeUrl} download className={buttonClasses({ variant: 'ghost', size: 'lg' })}>
+                <Download className="size-4" aria-hidden="true" /> Resume
+              </a>
+            )}
           </div>
           <p className="mt-8 font-mono text-xs text-muted-foreground">
             {HERO_CONTENT.TECH_STACK}

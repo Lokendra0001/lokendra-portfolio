@@ -1,0 +1,102 @@
+<svg width="512" height="512" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="22" fill="#090a0f"/>
+  <rect width="100" height="100" rx="22" stroke="#1f2535" stroke-width="2"/>
+  <!-- Ambient Emerald Radial Glow behind gem -->
+  <radialGradient id="app-bg-glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="100" height="100" rx="22" fill="url(#app-bg-glow)"/>
+  <g transform="translate(10, 10) scale(0.8)">
+    
+    <defs>
+      <linearGradient id="gem-dark-app-tl" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="100%" stop-color="#6ee7b7"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-tr" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6ee7b7"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-left" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6ee7b7"/>
+        <stop offset="50%" stop-color="#10b981"/>
+        <stop offset="100%" stop-color="#059669"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-right" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#10b981"/>
+        <stop offset="50%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#022c22"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-bl" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-br" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#022c22"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-rl" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="100%" stop-color="#6ee7b7"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-rr" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-snw" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#a7f3d0"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-sne" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-ssw" x1="0%" y1="100%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#a7f3d0"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-dark-app-sse" x1="100%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#10b981"/>
+        <stop offset="100%" stop-color="#022c22"/>
+      </linearGradient>
+      
+      <filter id="gem-dark-app-glow" x="-25%" y="-25%" width="150%" height="150%">
+        <feGaussianBlur stdDeviation="3.5" result="blur"/>
+        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+      </filter>
+      
+    </defs>
+    <g filter="url(#gem-dark-app-glow)">
+      <polygon points="50,6 14,26 26,33 50,20" fill="url(#gem-dark-app-tl)"/>
+      <polygon points="14,26 14,74 26,67 26,33" fill="url(#gem-dark-app-left)"/>
+      <polygon points="14,74 50,94 50,80 26,67" fill="url(#gem-dark-app-bl)"/>
+      <polygon points="50,94 86,74 74,67 50,80" fill="url(#gem-dark-app-br)"/>
+      <polygon points="86,74 86,26 74,33 74,67" fill="url(#gem-dark-app-right)"/>
+      <polygon points="86,26 50,6 50,20 74,33" fill="url(#gem-dark-app-tr)"/>
+
+      <polygon points="50,20 26,33 32,38 50,28" fill="url(#gem-dark-app-rl)" opacity="0.9"/>
+      <polygon points="26,33 26,67 32,62 32,38" fill="url(#gem-dark-app-rl)" opacity="0.75"/>
+      <polygon points="26,67 50,80 50,72 32,62" fill="url(#gem-dark-app-rr)" opacity="0.85"/>
+      <polygon points="50,80 74,67 68,62 50,72" fill="url(#gem-dark-app-right)" opacity="0.9"/>
+      <polygon points="74,67 74,33 68,38 68,62" fill="url(#gem-dark-app-right)" opacity="0.7"/>
+      <polygon points="74,33 50,20 50,28 68,38" fill="url(#gem-dark-app-rr)" opacity="0.95"/>
+
+      <line x1="50" y1="6" x2="50" y2="20" stroke="#a7f3d0" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/>
+      <line x1="14" y1="26" x2="26" y2="33" stroke="#a7f3d0" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/>
+      <line x1="14" y1="74" x2="26" y2="67" stroke="#6ee7b7" stroke-width="1" stroke-linecap="round" opacity="0.8"/>
+      <line x1="50" y1="94" x2="50" y2="80" stroke="#10b981" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+      <line x1="86" y1="74" x2="74" y2="67" stroke="#059669" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+      <line x1="86" y1="26" x2="74" y2="33" stroke="#a7f3d0" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+
+      <path d="M50 31 C50 42 42 50 31 50 L50 50 Z" fill="url(#gem-dark-app-snw)"/>
+      <path d="M50 31 C50 42 58 50 69 50 L50 50 Z" fill="url(#gem-dark-app-sne)"/>
+      <path d="M31 50 C42 50 50 58 50 69 L50 50 Z" fill="url(#gem-dark-app-ssw)"/>
+      <path d="M69 50 C58 50 50 58 50 69 L50 50 Z" fill="url(#gem-dark-app-sse)"/>
+
+      <circle cx="50" cy="50" r="3" fill="#ffffff"/>
+      <circle cx="50" cy="50" r="1.5" fill="#a7f3d0"/>
+    </g>
+  
+  </g>
+</svg>

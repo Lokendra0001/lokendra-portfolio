@@ -51,7 +51,7 @@ export function PageHero({ eyebrow, title, description, breadcrumbs, children, a
         <div className={aside ? 'mt-8 grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]' : 'mt-8'}>
           <div className="max-w-3xl 2xl:max-w-4xl">
             {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-            <h1 className="text-4xl font-semibold leading-[1.08] md:text-5xl lg:text-6xl 2xl:text-7xl">{title}</h1>
+            <h1 className="text-3xl font-semibold leading-[1.12] sm:text-4xl xl:text-5xl 2xl:text-6xl">{title}</h1>
             {description && (
               <p className="mt-6 max-w-2xl 2xl:max-w-3xl text-pretty text-lg 2xl:text-xl leading-relaxed text-muted-foreground">{description}</p>
             )}

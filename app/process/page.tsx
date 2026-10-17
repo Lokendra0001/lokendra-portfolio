@@ -70,7 +70,7 @@ export default function ProcessPage() {
           <h2 id="stages-heading" className="eyebrow">
             The 7 Stages
           </h2>
-          <h3 className="mt-3 text-3xl font-semibold text-foreground">How We Build Your Project</h3>
+          <h3 className="mt-3 text-2xl font-semibold text-foreground md:text-3xl">How We Build Your Project</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             From first requirement gathering to final domain connection and optional post-launch care.
           </p>

@@ -6,7 +6,7 @@ import { PageHero } from '@/components/layout/page-hero'
 import { ButtonLink } from '@/components/common/button-link'
 import { CtaSection } from '@/components/common/cta-section'
 import { ServiceIcon } from '@/components/services/service-icon'
-import { ProjectPreview } from '@/components/projects/project-preview'
+import { ProjectScreenshot } from '@/components/projects/project-preview'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
@@ -53,13 +53,13 @@ export default function ServicesPage() {
                   <ServiceIcon icon={service.icon} />
                   <div>
                     <p className="font-mono text-xs text-muted-foreground">{`0${index + 1}`}</p>
-                    <h2 id={`${service.slug}-heading`} className="text-3xl font-semibold md:text-4xl">
+                    <h2 id={`${service.slug}-heading`} className="text-2xl font-semibold sm:text-3xl 2xl:text-4xl">
                       {service.title}
                     </h2>
                   </div>
                 </div>
 
-                <div className="mt-10 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+                <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
                   <div className="space-y-8">
                     <div>
                       <h3 className="eyebrow">What it is</h3>
@@ -122,7 +122,7 @@ export default function ServicesPage() {
                         href={`/projects/${example.slug}`}
                         className="lift-card group block rounded-xl border border-border bg-card p-4"
                       >
-                        <ProjectPreview variant={example.preview} />
+                        <ProjectScreenshot project={example} />
                         <div className="mt-4 flex items-center justify-between gap-4 px-1">
                           <div className="min-w-0">
                             <p className="text-xs text-muted-foreground">Example · {example.status}</p>

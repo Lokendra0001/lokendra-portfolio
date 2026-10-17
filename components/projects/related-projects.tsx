@@ -15,7 +15,7 @@ export function RelatedProjects({
   return (
     <section aria-labelledby="related-heading" className="container-page py-16 md:py-20">
       <SectionHeading id="related-heading" eyebrow={eyebrow} title={title} />
-      <ul className="mt-10 grid gap-6 md:grid-cols-2">
+      <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <li key={project.slug}>
             <ProjectCard project={project} />

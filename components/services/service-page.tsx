@@ -9,7 +9,7 @@ import { ButtonLink } from '@/components/common/button-link'
 import { TechBadge } from '@/components/common/badges'
 import { FaqAccordion } from '@/components/common/faq-accordion'
 import { CtaSection } from '@/components/common/cta-section'
-import { ProjectPreview } from '@/components/projects/project-preview'
+import { ProjectScreenshot } from '@/components/projects/project-preview'
 import { RelatedProjects } from '@/components/projects/related-projects'
 
 function CheckList({ items }: { items: string[] }) {
@@ -39,7 +39,7 @@ export function ServicePage({ slug }: { slug: string }) {
         title={service.heroTitle}
         description={service.heroDescription}
         breadcrumbs={[{ label: 'Services', href: '/services' }, { label: service.shortTitle }]}
-        aside={examples[0] ? <ProjectPreview variant={examples[0].preview} /> : undefined}
+        aside={examples[0] ? <ProjectScreenshot project={examples[0]} /> : undefined}
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={contactHref} size="lg">

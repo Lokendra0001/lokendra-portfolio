@@ -29,21 +29,21 @@ export const DEV_SHORT_BIO =
 // 3. CONTACT DETAILS (Clients use these to reach you)
 // ---------------------------------------------------------------------------
 export const CONTACT_EMAIL = "rajpurohitlokendra62@gmail.com";
-export const CONTACT_WHATSAPP = "919876543210"; // International format, digits only (country code + number)
-export const CONTACT_PHONE = "+91 98765 43210";
+export const CONTACT_WHATSAPP = "919316816153"; // International format, digits only (country code + number)
+export const CONTACT_PHONE = "+91 93168 16153";
 
 // ---------------------------------------------------------------------------
 // 4. SOCIAL PROFILES & RESUME
 // ---------------------------------------------------------------------------
 export const SOCIAL_GITHUB = "https://github.com/Lokendra0001";
-export const SOCIAL_LINKEDIN = "https://linkedin.com/in/";
+export const SOCIAL_LINKEDIN = "https://www.linkedin.com/in/lokendrarajpurohit";
 export const RESUME_URL = "/resume.pdf"; // Store resume in /public/resume.pdf or use hosted link
-export const PROFILE_PHOTO = ""; // Leave empty to show initials avatar, or add '/images/profile.jpg'
+export const PROFILE_PHOTO = "/images/developer.jpg";
 
 // ---------------------------------------------------------------------------
 // 5. PRODUCTION SITE METADATA
 // ---------------------------------------------------------------------------
-export const SITE_URL = "https://alexrivers.dev";
+export const SITE_URL = "https://lokendra-portfolio-six.vercel.app";
 export const SITE_TITLE =
   "Lokendra Rajpurohit — Full-Stack Developer | Custom Websites, Shopify & Web Apps";
 export const SITE_DESCRIPTION =

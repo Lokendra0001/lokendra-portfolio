@@ -1,0 +1,85 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="gem-light-icon-tl" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#34d399"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-tr" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#10b981"/>
+        <stop offset="100%" stop-color="#059669"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-left" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#10b981"/>
+        <stop offset="50%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#047857"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-right" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#059669"/>
+        <stop offset="50%" stop-color="#047857"/>
+        <stop offset="100%" stop-color="#064e3b"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-bl" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#047857"/>
+        <stop offset="100%" stop-color="#059669"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-br" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#047857"/>
+        <stop offset="100%" stop-color="#064e3b"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-rl" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#34d399"/>
+        <stop offset="100%" stop-color="#10b981"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-rr" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#34d399"/>
+        <stop offset="100%" stop-color="#059669"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-snw" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#6ee7b7"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-sne" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#6ee7b7"/>
+        <stop offset="100%" stop-color="#059669"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-ssw" x1="0%" y1="100%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6ee7b7"/>
+        <stop offset="100%" stop-color="#059669"/>
+      </linearGradient>
+      <linearGradient id="gem-light-icon-sse" x1="100%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#064e3b"/>
+      </linearGradient>
+      
+    </defs>
+    <g >
+      <polygon points="50,6 14,26 26,33 50,20" fill="url(#gem-light-icon-tl)"/>
+      <polygon points="14,26 14,74 26,67 26,33" fill="url(#gem-light-icon-left)"/>
+      <polygon points="14,74 50,94 50,80 26,67" fill="url(#gem-light-icon-bl)"/>
+      <polygon points="50,94 86,74 74,67 50,80" fill="url(#gem-light-icon-br)"/>
+      <polygon points="86,74 86,26 74,33 74,67" fill="url(#gem-light-icon-right)"/>
+      <polygon points="86,26 50,6 50,20 74,33" fill="url(#gem-light-icon-tr)"/>
+
+      <polygon points="50,20 26,33 32,38 50,28" fill="url(#gem-light-icon-rl)" opacity="0.9"/>
+      <polygon points="26,33 26,67 32,62 32,38" fill="url(#gem-light-icon-rl)" opacity="0.75"/>
+      <polygon points="26,67 50,80 50,72 32,62" fill="url(#gem-light-icon-rr)" opacity="0.85"/>
+      <polygon points="50,80 74,67 68,62 50,72" fill="url(#gem-light-icon-right)" opacity="0.9"/>
+      <polygon points="74,67 74,33 68,38 68,62" fill="url(#gem-light-icon-right)" opacity="0.7"/>
+      <polygon points="74,33 50,20 50,28 68,38" fill="url(#gem-light-icon-rr)" opacity="0.95"/>
+
+      <line x1="50" y1="6" x2="50" y2="20" stroke="#34d399" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/>
+      <line x1="14" y1="26" x2="26" y2="33" stroke="#34d399" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/>
+      <line x1="14" y1="74" x2="26" y2="67" stroke="#10b981" stroke-width="1" stroke-linecap="round" opacity="0.8"/>
+      <line x1="50" y1="94" x2="50" y2="80" stroke="#059669" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+      <line x1="86" y1="74" x2="74" y2="67" stroke="#047857" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+      <line x1="86" y1="26" x2="74" y2="33" stroke="#34d399" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+
+      <path d="M50 31 C50 42 42 50 31 50 L50 50 Z" fill="url(#gem-light-icon-snw)"/>
+      <path d="M50 31 C50 42 58 50 69 50 L50 50 Z" fill="url(#gem-light-icon-sne)"/>
+      <path d="M31 50 C42 50 50 58 50 69 L50 50 Z" fill="url(#gem-light-icon-ssw)"/>
+      <path d="M69 50 C58 50 50 58 50 69 L50 50 Z" fill="url(#gem-light-icon-sse)"/>
+
+      <circle cx="50" cy="50" r="3" fill="#ffffff"/>
+      <circle cx="50" cy="50" r="1.5" fill="#34d399"/>
+    </g>
+  </svg>

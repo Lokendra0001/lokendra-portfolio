@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
-import type { PreviewVariant } from '@/data/projects'
+import type { PreviewVariant, Project } from '@/data/projects'
 import { cn } from '@/lib/utils'
+import { ThemedImage } from './project-card-visual'
 
 export function BrowserFrame({
   url,
@@ -273,24 +274,57 @@ const previews: Record<PreviewVariant, { url: string; render: () => ReactNode }>
   tasks: { url: 'taskflow.demo/board', render: TasksPreview },
 }
 
-export function ProjectPreview({ variant, className }: { variant: PreviewVariant; className?: string }) {
-  const { url, render: Render } = previews[variant]
+export function ProjectPreview({
+  variant,
+  className,
+  image,
+  imageDark,
+  title,
+  url,
+}: {
+  variant: PreviewVariant
+  className?: string
+  image?: string
+  imageDark?: string
+  title?: string
+  url?: string
+}) {
+  const defaultMeta = previews[variant] || previews.dashboard
+  const displayUrl = url ? url.replace(/^https?:\/\//, '') : defaultMeta.url
+  const Render = defaultMeta.render
+
+  if (image) {
+    return (
+      <BrowserFrame url={displayUrl} className={className}>
+        <div className="relative aspect-video w-full overflow-hidden bg-surface flex items-center justify-center">
+          <ThemedImage
+            image={image}
+            imageDark={imageDark}
+            alt={title || 'Project Screenshot Preview'}
+            className="w-full h-full object-contain object-top"
+          />
+        </div>
+      </BrowserFrame>
+    )
+  }
+
   return (
-    <BrowserFrame url={url} className={className}>
+    <BrowserFrame url={displayUrl} className={className}>
       <Render />
     </BrowserFrame>
   )
 }
 
-/** Simplified phone-sized mockup used in case study "responsive" galleries. */
-export function PhoneFrame({ variant }: { variant: PreviewVariant }) {
-  const { render: Render } = previews[variant]
+/** A project's real screenshot in a browser frame (falls back to its illustrative mockup). */
+export function ProjectScreenshot({ project, className }: { project: Project; className?: string }) {
   return (
-    <div className="mx-auto w-[180px] overflow-hidden rounded-[22px] border-4 border-slate-700 bg-card shadow-xl">
-      <div className="mx-auto mt-1.5 h-1 w-10 rounded-full bg-slate-600" aria-hidden="true" />
-      <div className="mt-1.5 origin-top-left scale-[0.62] [width:161%]">
-        <Render />
-      </div>
-    </div>
+    <ProjectPreview
+      variant={project.preview}
+      image={project.image}
+      imageDark={project.imageDark}
+      title={project.title}
+      url={project.liveUrl}
+      className={className}
+    />
   )
 }

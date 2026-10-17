@@ -98,7 +98,7 @@ export const services: Service[] = [
     },
     scopeNote:
       'Every application is different. Scope, timeline, and cost depend on the features, integrations, and data involved, and are agreed in writing before development starts.',
-    exampleProjectSlugs: ['business-operations-dashboard', 'taskflow-task-management'],
+    exampleProjectSlugs: ['veloxchat-realtime-chat', 'jobhunt-recruitment-platform', 'cineverse-movie-platform'],
     faqs: [
       {
         question: 'Do I need MERN specifically?',
@@ -193,7 +193,7 @@ export const services: Service[] = [
     },
     scopeNote:
       'I cannot guarantee sales, search rankings, or revenue. My focus is a well-built, easy-to-use store that gives your products a solid foundation.',
-    exampleProjectSlugs: ['shopify-storefront-demo'],
+    exampleProjectSlugs: ['travelvista-tour-travel-portal'],
     faqs: [
       {
         question: 'Do I need a paid theme?',
@@ -293,7 +293,7 @@ export const services: Service[] = [
     },
     scopeNote:
       'The final scope depends on the number of pages, features, and how ready your content is. I do not guarantee search rankings, but every site is built with solid SEO foundations.',
-    exampleProjectSlugs: ['salon-website-concept'],
+    exampleProjectSlugs: ['jobhunt-recruitment-platform', 'travelvista-tour-travel-portal'],
     faqs: [
       {
         question: 'I do not have photos or written content. Can you still help?',

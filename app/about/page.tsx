@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Code2, Cpu, Globe2, ShieldCheck, Terminal, Users } from 'lucide-react'
-import { siteConfig } from '@/lib/site-config'
+import { ArrowRight, CheckCircle2, Download, Code2, Cpu, Globe2, ShieldCheck, Terminal, Users } from 'lucide-react'
+import { isConfigured, siteConfig } from '@/lib/site-config'
 import { PageHero } from '@/components/layout/page-hero'
-import { ButtonLink } from '@/components/common/button-link'
+import { ButtonLink, buttonClasses } from '@/components/common/button-link'
 import { CtaSection } from '@/components/common/cta-section'
 import { TechBadge } from '@/components/common/badges'
 import { techGroups } from '@/data/tech'
@@ -73,6 +73,11 @@ export default function AboutPage() {
           <ButtonLink href="/projects" variant="secondary">
             View My Work
           </ButtonLink>
+          {isConfigured(siteConfig.resumeUrl) && (
+            <a href={siteConfig.resumeUrl} download className={buttonClasses({ variant: 'ghost' })}>
+              <Download className="size-4" aria-hidden="true" /> Download Resume
+            </a>
+          )}
         </div>
       </PageHero>
 
@@ -83,7 +88,7 @@ export default function AboutPage() {
             <h2 id="background-heading" className="eyebrow">
               Background & Experience
             </h2>
-            <h3 className="text-3xl font-semibold leading-snug text-foreground">
+            <h3 className="text-2xl font-semibold leading-snug text-foreground md:text-3xl">
               Bridging engineering rigor with practical business needs.
             </h3>
             <div className="space-y-4 text-pretty leading-relaxed text-muted-foreground">
@@ -167,7 +172,7 @@ export default function AboutPage() {
             <h2 id="philosophy-heading" className="eyebrow">
               Philosophy
             </h2>
-            <h3 className="mt-3 text-3xl font-semibold text-foreground">How I Approach Every Project</h3>
+            <h3 className="mt-3 text-2xl font-semibold text-foreground md:text-3xl">How I Approach Every Project</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Guiding principles that guarantee clarity, stability, and mutual respect throughout the build.
             </p>
@@ -190,7 +195,7 @@ export default function AboutPage() {
           <h2 id="focus-heading" className="eyebrow">
             What I Like Building
           </h2>
-          <h3 className="mt-3 text-3xl font-semibold text-foreground">Ideal Project Types</h3>
+          <h3 className="mt-3 text-2xl font-semibold text-foreground md:text-3xl">Ideal Project Types</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             I focus on projects where clean engineering and good user experience make a tangible difference.
           </p>
@@ -213,7 +218,7 @@ export default function AboutPage() {
             <h2 id="tech-heading" className="eyebrow">
               Technologies
             </h2>
-            <h3 className="mt-3 text-3xl font-semibold text-foreground">Tools & Frameworks</h3>
+            <h3 className="mt-3 text-2xl font-semibold text-foreground md:text-3xl">Tools & Frameworks</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               A modern, battle-tested toolset selected for security, speed, and long-term ecosystem stability.
             </p>

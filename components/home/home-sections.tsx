@@ -20,7 +20,7 @@ export function IntroSection() {
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
           <p className="eyebrow mb-3">About me</p>
-          <h2 id="intro-heading" className="text-3xl font-semibold leading-tight md:text-4xl">
+          <h2 id="intro-heading" className="text-2xl font-semibold leading-tight sm:text-3xl 2xl:text-4xl">
             A full-stack developer with company experience, now taking on freelance work.
           </h2>
         </Reveal>
@@ -92,14 +92,14 @@ export function FeaturedProjects() {
         <SectionHeading
           id="work-heading"
           eyebrow="Selected work"
-          title="Personal, concept, and demo projects"
-          description="Each project is clearly labelled. None of these are presented as paid client work."
+          title="Featured Projects & Open Source"
+          description="Production MERN applications, real-time collaboration platforms, and open-source NPM packages."
         />
         <ButtonLink href="/projects" variant="secondary" className="shrink-0">
           View Projects
         </ButtonLink>
       </div>
-      <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((project, i) => (
           <Reveal as="li" key={project.slug} delay={i * 80}>
             <ProjectCard project={project} />

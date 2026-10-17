@@ -61,7 +61,7 @@ const serviceDetails: Record<string, ServicePreviewData> = {
     showcaseTitle: 'Bespoke Shopify Storefront & Dashboard',
     showcaseSubtitle: 'Custom Liquid themes, instant 1-click cart, inventory synchronization, and conversion-optimized checkout.',
     url: 'nordic-apparel.store',
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1688561807440-8a57dfa77ee3?auto=format&fit=crop&w=1200&q=80',
     badges: ['Shopify Plus', 'Liquid', 'Storefront API', 'Instant Cart'],
     metric: '$14,250 Today · 4.8% Conv.',
     statusText: 'Live Storefront · Ready',

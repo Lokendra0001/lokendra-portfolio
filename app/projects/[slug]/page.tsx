@@ -2,12 +2,12 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, Check, ExternalLink, Info, Layers, Sparkles, Target, Users } from 'lucide-react'
 import { projects, getProject, getRelatedProjects } from '@/data/projects'
-import { isConfigured } from '@/lib/site-config'
+import { isConfigured, siteConfig } from '@/lib/site-config'
 import { PageHero } from '@/components/layout/page-hero'
 import { StatusBadge, TechBadge } from '@/components/common/badges'
 import { ButtonLink } from '@/components/common/button-link'
-import { GithubIcon } from '@/components/common/brand-icons'
-import { ProjectPreview, PhoneFrame } from '@/components/projects/project-preview'
+import { LinkedinIcon } from '@/components/common/brand-icons'
+import { ProjectScreenshot } from '@/components/projects/project-preview'
 import { RelatedProjects } from '@/components/projects/related-projects'
 import { CtaSection } from '@/components/common/cta-section'
 import { pageMetadata } from '@/lib/seo'
@@ -35,6 +35,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   if (!project) notFound()
 
   const related = getRelatedProjects(slug, 2)
+  const linkedinUrl = project.linkedinUrl || siteConfig.social.linkedin
 
   return (
     <>
@@ -43,7 +44,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         title={project.title}
         description={project.summary}
         breadcrumbs={[{ label: 'Projects', href: '/projects' }, { label: project.title }]}
-        aside={<ProjectPreview variant={project.preview} />}
+        aside={<ProjectScreenshot project={project} />}
       >
         <div className="flex flex-wrap items-center gap-3">
           <StatusBadge status={project.status} />
@@ -52,9 +53,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               Live Demo <ExternalLink className="size-3.5" aria-hidden="true" />
             </ButtonLink>
           )}
-          {isConfigured(project.repoUrl) && (
-            <ButtonLink href={project.repoUrl} external variant="secondary" size="sm">
-              <GithubIcon className="size-4" aria-hidden="true" /> Source Code
+          {isConfigured(linkedinUrl) && (
+            <ButtonLink href={linkedinUrl} external variant="secondary" size="sm">
+              <LinkedinIcon className="size-4 text-[#0a66c2]" aria-hidden="true" /> View on LinkedIn
             </ButtonLink>
           )}
           <ButtonLink href="/contact" variant="secondary" size="sm">
@@ -86,6 +87,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="font-display text-base font-semibold text-foreground">Problem & Scenario</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.scenario}</p>
+            </div>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="font-display text-base font-semibold text-foreground">Design Direction</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.designDirection}</p>
             </div>
           </div>
 
@@ -123,29 +128,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {/* Visual Design & Responsive Preview */}
-      <section className="border-y border-border bg-surface py-16 md:py-24" aria-labelledby="design-heading">
-        <div className="container-page">
-          <div className="max-w-2xl">
-            <h2 id="design-heading" className="eyebrow">
-              Design & Interface
-            </h2>
-            <p className="mt-3 text-2xl font-semibold text-foreground">Responsive Presentation Across Viewports</p>
-            <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">{project.designDirection}</p>
-          </div>
-
-          <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.4fr_0.8fr]">
-            <div className="overflow-hidden rounded-xl border border-border bg-card p-4 shadow-sm md:p-6">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">Desktop Mockup</p>
-              <ProjectPreview variant={project.preview} />
-            </div>
-            <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-6 shadow-sm">
-              <p className="mb-4 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">Mobile Viewport</p>
-              <PhoneFrame variant={project.preview} />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Key Features & Stack */}
       <section className="container-page py-16 md:py-24" aria-labelledby="features-heading">
@@ -238,7 +220,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
       {/* Final CTA */}
       <CtaSection
-        title={`Looking for a developer for your ${project.type.toLowerCase()}?`}
+        title="Want something like this built for you?"
         description="Let's talk through your business requirements, timeline, and budget. I will provide an honest recommendation on technology and scope."
         primaryLabel="Start a Project"
         primaryHref="/contact"
