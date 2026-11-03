@@ -66,6 +66,8 @@ export default function RootLayout({
       lang="en"
       id="top"
       className={`${inter.variable} ${display.variable}`}
+      // Lets Next.js turn off smooth scrolling while changing pages, so the new page jumps to the top instantly.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
@@ -73,7 +75,8 @@ export default function RootLayout({
       </head>
       <body className="flex min-h-dvh flex-col antialiased">
         <SiteHeader />
-        <main id="main" className="flex-1">
+        {/* Scroll margin taller than the sticky header so page changes land at the very top, not below the header. */}
+        <main id="main" className="flex-1 scroll-mt-40">
           {children}
         </main>
         <SiteFooter />

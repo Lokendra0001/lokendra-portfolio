@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { mainNav, serviceNav } from '@/data/navigation'
 import { buttonClasses } from '@/components/common/button-link'
@@ -56,84 +57,88 @@ export function MobileNav() {
         {open ? <X className="size-4" aria-hidden="true" /> : <Menu className="size-4" aria-hidden="true" />}
       </button>
 
-      <div
-        id="mobile-menu"
-        ref={panelRef}
-        hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto border-t border-border bg-background/95 backdrop-blur-xl"
-      >
-        <nav aria-label="Mobile" className="container-page flex min-h-full flex-col py-6">
-          <ul className="space-y-1">
-            {mainNav.map((item) => {
-              const active = isActivePath(pathname, item.href)
-              return (
-                <li key={item.href}>
+      {/* Portalled to <body>: the header's backdrop-filter would otherwise trap this fixed panel inside the header. */}
+      {open &&
+        createPortal(
+          <div
+            id="mobile-menu"
+            ref={panelRef}
+            className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto border-t border-border bg-background/95 backdrop-blur-xl"
+          >
+            <nav aria-label="Mobile" className="container-page flex min-h-full flex-col py-6">
+              <ul className="space-y-1">
+                {mainNav.map((item) => {
+                  const active = isActivePath(pathname, item.href)
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={close}
+                        aria-current={active ? 'page' : undefined}
+                        className={cn(
+                          'flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium transition-colors',
+                          active
+                            ? 'bg-primary/10 text-primary font-semibold'
+                            : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground',
+                        )}
+                      >
+                        <span>{item.label}</span>
+                        {active && <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />}
+                      </Link>
+
+                      {item.href === '/services' && (
+                        <ul className="my-1.5 ml-3 space-y-1 border-l border-border pl-3">
+                          {serviceNav.map((service) => (
+                            <li key={service.href}>
+                              <Link
+                                href={service.href}
+                                onClick={close}
+                                className={cn(
+                                  'block rounded-md px-3 py-1.5 text-xs transition-colors',
+                                  pathname === service.href
+                                    ? 'text-primary font-semibold'
+                                    : 'text-muted-foreground hover:text-foreground',
+                                )}
+                              >
+                                {service.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  )
+                })}
+                <li>
                   <Link
-                    href={item.href}
+                    href="/faq"
                     onClick={close}
-                    aria-current={active ? 'page' : undefined}
+                    aria-current={pathname === '/faq' ? 'page' : undefined}
                     className={cn(
-                      'flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium transition-colors',
-                      active
+                      'block rounded-lg px-3 py-2.5 text-base font-medium transition-colors',
+                      pathname === '/faq'
                         ? 'bg-primary/10 text-primary font-semibold'
                         : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground',
                     )}
                   >
-                    <span>{item.label}</span>
-                    {active && <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />}
+                    FAQ
                   </Link>
-
-                  {item.href === '/services' && (
-                    <ul className="my-1.5 ml-3 space-y-1 border-l border-border pl-3">
-                      {serviceNav.map((service) => (
-                        <li key={service.href}>
-                          <Link
-                            href={service.href}
-                            onClick={close}
-                            className={cn(
-                              'block rounded-md px-3 py-1.5 text-xs transition-colors',
-                              pathname === service.href
-                                ? 'text-primary font-semibold'
-                                : 'text-muted-foreground hover:text-foreground',
-                            )}
-                          >
-                            {service.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </li>
-              )
-            })}
-            <li>
-              <Link
-                href="/faq"
-                onClick={close}
-                aria-current={pathname === '/faq' ? 'page' : undefined}
-                className={cn(
-                  'block rounded-lg px-3 py-2.5 text-base font-medium transition-colors',
-                  pathname === '/faq'
-                    ? 'bg-primary/10 text-primary font-semibold'
-                    : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground',
-                )}
-              >
-                FAQ
-              </Link>
-            </li>
-          </ul>
+              </ul>
 
-          <div className="mt-auto pt-6">
-            <Link
-              href="/contact"
-              onClick={close}
-              className={buttonClasses({ size: 'md', className: 'w-full rounded-lg' })}
-            >
-              Start a Project <ArrowRight className="size-4 ml-1" />
-            </Link>
-          </div>
-        </nav>
-      </div>
+              <div className="mt-auto pt-6">
+                <Link
+                  href="/contact"
+                  onClick={close}
+                  className={buttonClasses({ size: 'md', className: 'w-full rounded-lg' })}
+                >
+                  Start a Project <ArrowRight className="size-4 ml-1" />
+                </Link>
+              </div>
+            </nav>
+          </div>,
+          document.body,
+        )}
     </div>
   )
 }

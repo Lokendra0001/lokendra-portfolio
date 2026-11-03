@@ -95,7 +95,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Me"
-        title="Full Stack Developer at Tech Samrajya, available for selected freelance work."
+        title="Full-Stack Developer with company experience, available for selected freelance work."
         description={siteConfig.positioning}
         breadcrumbs={[{ label: 'About' }]}
       >
