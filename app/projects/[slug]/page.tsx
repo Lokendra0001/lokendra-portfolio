@@ -7,7 +7,7 @@ import { PageHero } from '@/components/layout/page-hero'
 import { StatusBadge, TechBadge } from '@/components/common/badges'
 import { ButtonLink } from '@/components/common/button-link'
 import { LinkedinIcon } from '@/components/common/brand-icons'
-import { ProjectScreenshot } from '@/components/projects/project-preview'
+import { BrowserFrame, ProjectScreenshot } from '@/components/projects/project-preview'
 import { RelatedProjects } from '@/components/projects/related-projects'
 import { CtaSection } from '@/components/common/cta-section'
 import { pageMetadata } from '@/lib/seo'
@@ -128,6 +128,34 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
+      {/* Product screenshots */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="border-y border-border bg-surface py-16 md:py-24" aria-labelledby="gallery-heading">
+          <div className="container-page">
+            <h2 id="gallery-heading" className="eyebrow">
+              Inside the product
+            </h2>
+            <div className="mt-8 space-y-10">
+              {project.gallery.map((shot) => (
+                <figure key={shot.src}>
+                  <BrowserFrame url="">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={shot.src}
+                      alt={shot.caption}
+                      width={shot.width}
+                      height={shot.height}
+                      loading="lazy"
+                      className="block h-auto w-full"
+                    />
+                  </BrowserFrame>
+                  <figcaption className="mt-3 text-sm text-muted-foreground">{shot.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Key Features & Stack */}
       <section className="container-page py-16 md:py-24" aria-labelledby="features-heading">
@@ -158,6 +186,21 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                     <div key={dec.title} className="rounded-xl border border-border bg-card p-5">
                       <h5 className="font-medium text-foreground">{dec.title}</h5>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{dec.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Challenges */}
+            {project.challenges.length > 0 && (
+              <div className="mt-12">
+                <h4 className="font-display text-xl font-semibold text-foreground">Challenges & Solutions</h4>
+                <div className="mt-6 space-y-4">
+                  {project.challenges.map((c) => (
+                    <div key={c.challenge} className="rounded-xl border border-border bg-card p-5">
+                      <h5 className="font-medium text-foreground">{c.challenge}</h5>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.solution}</p>
                     </div>
                   ))}
                 </div>

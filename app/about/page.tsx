@@ -1,18 +1,19 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Download, Code2, Cpu, Globe2, ShieldCheck, Terminal, Users } from 'lucide-react'
+import { ArrowRight, Award, Briefcase, CheckCircle2, Download, Code2, Cpu, Globe2, GraduationCap, ShieldCheck, Terminal } from 'lucide-react'
 import { isConfigured, siteConfig } from '@/lib/site-config'
 import { PageHero } from '@/components/layout/page-hero'
 import { ButtonLink, buttonClasses } from '@/components/common/button-link'
 import { CtaSection } from '@/components/common/cta-section'
 import { TechBadge } from '@/components/common/badges'
 import { techGroups } from '@/data/tech'
+import { achievements, education, experience, type TimelineEntry } from '@/data/profile'
 import { ContactMethods } from '@/components/contact/contact-methods'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
   title: 'About Me',
   description:
-    'Full-stack developer building modern websites, e-commerce storefronts, and custom MERN web applications with company experience and freelance availability.',
+    'Full Stack Developer at Tech Samrajya building client websites, Shopify stores, web applications and AI automation — available for selected freelance work.',
   path: '/about',
 })
 
@@ -57,12 +58,44 @@ const projectFocusAreas = [
   },
 ]
 
+function Timeline({
+  icon: Icon,
+  label,
+  entries,
+}: {
+  icon: typeof Briefcase
+  label: string
+  entries: TimelineEntry[]
+}) {
+  return (
+    <div>
+      <h4 className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary">
+        <Icon className="size-4" aria-hidden="true" /> {label}
+      </h4>
+      <ol className="mt-5 space-y-6 border-l border-border pl-6">
+        {entries.map((e) => (
+          <li key={e.title + e.period} className="relative">
+            <span
+              className={`absolute -left-[29px] top-1.5 size-2.5 rounded-full border-2 border-surface ${e.current ? 'bg-primary' : 'bg-border-strong'}`}
+              aria-hidden="true"
+            />
+            <p className="font-mono text-xs text-muted-foreground">{e.period}</p>
+            <p className="mt-1 font-display text-base font-semibold text-foreground">{e.title}</p>
+            <p className="text-sm text-muted-foreground">{e.organisation}</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80">{e.detail}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 export default function AboutPage() {
   return (
     <>
       <PageHero
         eyebrow="About Me"
-        title="Full-Stack Developer with company experience, available for selected freelance work."
+        title="Full Stack Developer at Tech Samrajya, available for selected freelance work."
         description={siteConfig.positioning}
         breadcrumbs={[{ label: 'About' }]}
       >
@@ -93,16 +126,16 @@ export default function AboutPage() {
             </h3>
             <div className="space-y-4 text-pretty leading-relaxed text-muted-foreground">
               <p>
-                I currently work as a professional full-stack software developer at a company, where I collaborate on
-                production web applications, backend APIs, and database architecture. Alongside my full-time role, I take
-                on a selective number of freelance projects for business owners and teams who need dependable technical
-                execution.
+                I work as a Full Stack Developer at Tech Samrajya in Surat, where I joined as an intern in September 2025
+                and moved to a full-time role in March 2026. I build production web applications, REST APIs, Shopify
+                storefronts and AI-powered automation for real clients. Alongside that role, I take on a small number of
+                freelance projects for business owners and teams who need dependable technical execution.
               </p>
               <p>
-                My approach is rooted in honesty and practical problem solving. The projects featured in this portfolio
-                represent my own concept and personal demonstration work — designed to transparently show how I architect
-                systems, handle UI responsiveness, and solve real-world workflows without inflating client lists or
-                fabricating statistics.
+                The projects in this portfolio are live work for real clients and products — from AuraChat, an Instagram
+                and WhatsApp automation platform, to a research journal portal, a college website with an admin console,
+                a 3D product site for a GFRP manufacturer, and Shopify stores. Each one is shown with what it actually
+                does, without inflated numbers.
               </p>
               <p>
                 Whether you need a new web application from scratch, an upgrade to your existing Shopify storefront, or a
@@ -146,6 +179,10 @@ export default function AboutPage() {
                   <dd className="mt-0.5 font-medium text-foreground">{siteConfig.role}</dd>
                 </div>
                 <div>
+                  <dt className="text-xs uppercase tracking-wider text-muted-foreground">Currently</dt>
+                  <dd className="mt-0.5 font-medium text-foreground">Full Stack Developer, Tech Samrajya</dd>
+                </div>
+                <div>
                   <dt className="text-xs uppercase tracking-wider text-muted-foreground">Location</dt>
                   <dd className="mt-0.5 font-medium text-foreground">{siteConfig.location}</dd>
                 </div>
@@ -165,8 +202,39 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Experience, Education & Achievements */}
+      <section className="border-t border-border bg-surface py-16 md:py-24" aria-labelledby="journey-heading">
+        <div className="container-page">
+          <div className="max-w-2xl">
+            <h2 id="journey-heading" className="eyebrow">
+              Journey
+            </h2>
+            <h3 className="mt-3 text-2xl font-semibold text-foreground md:text-3xl">Experience & Education</h3>
+          </div>
+          <div className="mt-12 grid gap-10 lg:grid-cols-2">
+            <Timeline icon={Briefcase} label="Experience" entries={experience} />
+            <div className="space-y-10">
+              <Timeline icon={GraduationCap} label="Education" entries={education} />
+              <div>
+                <h4 className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary">
+                  <Award className="size-4" aria-hidden="true" /> Achievements
+                </h4>
+                <ul className="mt-4 space-y-3">
+                  {achievements.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm text-foreground/85">
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Development Philosophies */}
-      <section className="border-y border-border bg-surface py-16 md:py-24" aria-labelledby="philosophy-heading">
+      <section className="border-y border-border py-16 md:py-24" aria-labelledby="philosophy-heading">
         <div className="container-page">
           <div className="max-w-2xl">
             <h2 id="philosophy-heading" className="eyebrow">

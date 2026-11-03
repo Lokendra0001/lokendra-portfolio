@@ -9,6 +9,7 @@ const projectTypes = [
   'Business Website',
   'Shopify Store',
   'MERN Web Application',
+  'AI Automation',
   'Admin Dashboard',
   'Existing Website Improvements',
   'Other',

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useId, useRef, useState } from 'react'
-import { ArrowRight, ChevronDown, Code2, ShoppingBag, Building2 } from 'lucide-react'
+import { ArrowRight, Bot, ChevronDown, Code2, ShoppingBag, Building2 } from 'lucide-react'
 import { mainNav, serviceNav } from '@/data/navigation'
 import { cn } from '@/lib/utils'
 
@@ -26,13 +26,8 @@ type ServicePreviewData = {
   border: string
   text: string
   tag: string
-  showcaseTitle: string
-  showcaseSubtitle: string
-  url: string
+  /** Real project screenshot shown in the menu preview */
   imageUrl: string
-  badges: string[]
-  metric: string
-  statusText: string
   slug: string
 }
 
@@ -42,14 +37,8 @@ const serviceDetails: Record<string, ServicePreviewData> = {
     bg: 'bg-emerald-500/10',
     border: 'border-emerald-500/20',
     text: 'text-emerald-600 dark:text-emerald-400',
-    tag: 'Next.js 15 · Full-Stack',
-    showcaseTitle: 'Modern Next.js SaaS Web Application',
-    showcaseSubtitle: 'Custom responsive web portal with real-time analytics, user authentication, and REST/GraphQL APIs.',
-    url: 'app.nextflow-saas.com',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-    badges: ['Next.js 15', 'React 19', 'TypeScript', 'PostgreSQL'],
-    metric: '$48,290 MRR · 14ms latency',
-    statusText: 'Production App · Live',
+    tag: 'Next.js · Full-Stack',
+    imageUrl: '/images/projects/samarth-dashboard.webp',
     slug: '/services/mern-development',
   },
   '/services/shopify-development': {
@@ -57,14 +46,8 @@ const serviceDetails: Record<string, ServicePreviewData> = {
     bg: 'bg-amber-500/10',
     border: 'border-amber-500/20',
     text: 'text-amber-600 dark:text-amber-400',
-    tag: 'Shopify Plus · Liquid',
-    showcaseTitle: 'Bespoke Shopify Storefront & Dashboard',
-    showcaseSubtitle: 'Custom Liquid themes, instant 1-click cart, inventory synchronization, and conversion-optimized checkout.',
-    url: 'nordic-apparel.store',
-    imageUrl: 'https://images.unsplash.com/photo-1688561807440-8a57dfa77ee3?auto=format&fit=crop&w=1200&q=80',
-    badges: ['Shopify Plus', 'Liquid', 'Storefront API', 'Instant Cart'],
-    metric: '$14,250 Today · 4.8% Conv.',
-    statusText: 'Live Storefront · Ready',
+    tag: 'Shopify · Liquid',
+    imageUrl: '/images/projects/gabriel-waves.png',
     slug: '/services/shopify-development',
   },
   '/services/business-websites': {
@@ -72,15 +55,18 @@ const serviceDetails: Record<string, ServicePreviewData> = {
     bg: 'bg-blue-500/10',
     border: 'border-blue-500/20',
     text: 'text-blue-600 dark:text-blue-400',
-    tag: 'SEO · High-Converting',
-    showcaseTitle: 'High-Impact Business & Marketing Website',
-    showcaseSubtitle: 'Fast, professional marketing websites engineered to turn organic traffic into qualified paying inquiries.',
-    url: 'apex-studio.agency',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-    badges: ['100% Core Web Vitals', 'Semantic SEO', 'Mobile First', 'Lead Gen'],
-    metric: '+160% Qualified Leads · 0.8s LCP',
-    statusText: 'Live Website · 100/100 Lighthouse',
+    tag: 'SEO · Mobile-First',
+    imageUrl: '/images/projects/bhandari-techfab.png',
     slug: '/services/business-websites',
+  },
+  '/services/ai-automation': {
+    icon: Bot,
+    bg: 'bg-violet-500/10',
+    border: 'border-violet-500/20',
+    text: 'text-violet-600 dark:text-violet-400',
+    tag: 'AI · Meta APIs',
+    imageUrl: '/images/projects/aurachat-dashboard.webp',
+    slug: '/services/ai-automation',
   },
 }
 

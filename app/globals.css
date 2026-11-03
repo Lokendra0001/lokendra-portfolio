@@ -222,16 +222,6 @@
   }
 }
 
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
 @keyframes caret-blink {
   0%,
   50% {
@@ -243,9 +233,6 @@
   }
 }
 
-.animate-float-slow {
-  animation: float-slow 7s ease-in-out infinite;
-}
 .animate-caret {
   animation: caret-blink 1.1s step-end infinite;
 }

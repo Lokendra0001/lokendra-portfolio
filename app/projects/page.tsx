@@ -7,7 +7,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata = pageMetadata({
   title: 'Projects & Open Source',
   description:
-    'Explore full-stack MERN web applications, real-time messaging platforms, and published open-source NPM packages built by Lokendra Rajpurohit.',
+    'Client websites, Shopify stores and web applications built by Lokendra Rajpurohit — from SaaS automation tools to college portals and e-commerce stores.',
   path: '/projects',
 })
 
@@ -16,8 +16,8 @@ export default function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Portfolio"
-        title="Projects & Open Source Work."
-        description="Explore full-stack MERN web applications, real-time communication platforms, tour exploration systems, and published NPM packages."
+        title="Projects & Client Work."
+        description="Client websites, Shopify stores and web applications — from SaaS automation tools to college portals and e-commerce stores."
         breadcrumbs={[{ label: 'Projects' }]}
       />
 

@@ -25,6 +25,11 @@ export const serviceNav: NavLink[] = [
     href: '/services/business-websites',
     description: 'Professional sites for local and service businesses.',
   },
+  {
+    label: 'AI Automation',
+    href: '/services/ai-automation',
+    description: 'Auto-replies, workflows, and AI agents for your channels.',
+  },
 ]
 
 export const footerNav: { title: string; links: NavLink[] }[] = [
@@ -39,7 +44,6 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: 'About', href: '/about' },
       { label: 'Process', href: '/process' },
       { label: 'FAQ', href: '/faq' },
-      { label: 'Resources', href: '/blog' },
     ],
   },
 ]

@@ -1,6 +1,6 @@
 import type { Faq } from './faqs'
 
-export type ServiceIcon = 'code' | 'store' | 'building'
+export type ServiceIcon = 'code' | 'store' | 'building' | 'bot'
 
 export type Service = {
   slug: string
@@ -98,7 +98,7 @@ export const services: Service[] = [
     },
     scopeNote:
       'Every application is different. Scope, timeline, and cost depend on the features, integrations, and data involved, and are agreed in writing before development starts.',
-    exampleProjectSlugs: ['veloxchat-realtime-chat', 'jobhunt-recruitment-platform', 'cineverse-movie-platform'],
+    exampleProjectSlugs: ['ijarmy-research-journal', 'shree-samarth-polytechnic', 'aurachat-instagram-automation'],
     faqs: [
       {
         question: 'Do I need MERN specifically?',
@@ -193,7 +193,7 @@ export const services: Service[] = [
     },
     scopeNote:
       'I cannot guarantee sales, search rankings, or revenue. My focus is a well-built, easy-to-use store that gives your products a solid foundation.',
-    exampleProjectSlugs: ['travelvista-tour-travel-portal'],
+    exampleProjectSlugs: ['gabriel-waves-shopify-store', 'dauji-fashion-shopify-store'],
     faqs: [
       {
         question: 'Do I need a paid theme?',
@@ -293,7 +293,7 @@ export const services: Service[] = [
     },
     scopeNote:
       'The final scope depends on the number of pages, features, and how ready your content is. I do not guarantee search rankings, but every site is built with solid SEO foundations.',
-    exampleProjectSlugs: ['jobhunt-recruitment-platform', 'travelvista-tour-travel-portal'],
+    exampleProjectSlugs: ['bhandari-techfab-gfrp', 'ms-patil-construction'],
     faqs: [
       {
         question: 'I do not have photos or written content. Can you still help?',
@@ -313,6 +313,94 @@ export const services: Service[] = [
     ctaTitle: 'Need a website for your business?',
     ctaLabel: 'Request an Estimate',
     inquiryType: 'Business Website',
+  },
+  {
+    slug: 'ai-automation',
+    title: 'AI Automation & Intelligent Agents',
+    shortTitle: 'AI Automation',
+    icon: 'bot',
+    tagline: 'Automated replies, workflows and AI agents that save hours every week.',
+    heroTitle: 'Automate the Repetitive Work So Your Team Can Focus on Customers.',
+    heroDescription:
+      'From instant Instagram and WhatsApp replies to AI agents that answer questions and route leads, I build automation that connects your channels, tools and data — using official APIs and reliable workflows.',
+    whatItIs:
+      'Custom automation that handles repeated tasks for you: answering common messages, capturing and qualifying leads, sending follow-ups, and connecting the apps your business already uses, with AI where it genuinely helps.',
+    whoNeedsIt: [
+      'Creators and brands flooded with comments and DMs',
+      'Businesses answering the same customer questions every day',
+      'Teams copying data between forms, sheets and CRMs by hand',
+      'Companies wanting an AI assistant trained on their own information',
+    ],
+    problems: [
+      'Leads lost because nobody replied in time',
+      'Hours spent on copy-paste work between tools',
+      'Inconsistent answers to common customer questions',
+      'No visibility into what was sent, answered or missed',
+    ],
+    deliverables: [
+      'Automation flows designed around your process',
+      'Integrations with Meta (Instagram, Messenger, WhatsApp) and other APIs',
+      'AI agent or chatbot configured with your business information',
+      'Dashboard or logs to monitor what the automation does',
+      'Documentation and handover',
+    ],
+    capabilities: [
+      'Instagram comment and DM auto-replies',
+      'WhatsApp keyword replies and flows',
+      'Lead capture and qualification',
+      'Follow-up message sequences',
+      'AI chatbots and assistants',
+      'LLM API integration',
+      'Webhooks and API integrations',
+      'Workflow automation with n8n',
+      'Monitoring and analytics dashboards',
+    ],
+    explainer: {
+      title: 'Automation that stays reliable',
+      body: [
+        'Good automation is built on official APIs and clear rules, so it keeps working and keeps your accounts safe.',
+        'AI is added where it saves real effort — answering questions or drafting replies — with a person able to step in whenever it matters.',
+      ],
+    },
+    offeringsTitle: 'What can be automated',
+    offerings: [
+      { title: 'Social media replies', description: 'Reply to comments, DMs and story replies within seconds using keyword rules.' },
+      { title: 'WhatsApp flows', description: 'Menus, keyword answers and step-by-step flows with handoff to a person.' },
+      { title: 'Lead capture', description: 'Collect emails and details, then send them to your sheet or CRM.' },
+      { title: 'Follow-up sequences', description: 'Timed messages that nurture interested customers over several days.' },
+      { title: 'AI assistants', description: 'Chatbots that answer questions using your own business information.' },
+      { title: 'Workflow integrations', description: 'Connect forms, sheets, email and apps so data moves automatically.' },
+    ],
+    stack: ['Next.js', 'Node.js', 'Meta Graph API', 'WhatsApp Cloud API', 'Webhooks', 'LLM APIs', 'n8n', 'Docker'],
+    costNote: {
+      title: 'What the estimate covers',
+      development: ['Process mapping and flow design', 'Integration and automation development', 'Testing with real scenarios', 'Monitoring setup and handover'],
+      thirdParty: ['AI model usage (per request)', 'WhatsApp Business messaging fees', 'Hosting or automation platform plans', 'Paid third-party APIs'],
+      note: 'AI and messaging providers bill usage directly, so running costs depend on volume.',
+    },
+    scopeNote:
+      'Each automation depends on the platforms involved and their rules. Meta and WhatsApp policies apply to every flow, and the scope is agreed in writing before development starts.',
+    exampleProjectSlugs: ['aurachat-instagram-automation'],
+    faqs: [
+      {
+        question: 'Is automating Instagram or WhatsApp safe for my account?',
+        answer:
+          "Yes, when it uses Meta's official APIs, as AuraChat does. Unofficial tools that log in with your password are what put accounts at risk.",
+      },
+      {
+        question: 'Will the AI give wrong answers to customers?',
+        answer:
+          'AI answers are limited to your approved information, and flows can hand over to a person for anything sensitive or uncertain.',
+      },
+      {
+        question: 'Can you connect it to the tools I already use?',
+        answer:
+          'Usually yes. Most tools offer APIs or webhooks, and services like n8n can connect sheets, CRMs and email without rebuilding your setup.',
+      },
+    ],
+    ctaTitle: 'Have work you would rather automate?',
+    ctaLabel: 'Discuss an Automation',
+    inquiryType: 'AI Automation',
   },
 ]
 

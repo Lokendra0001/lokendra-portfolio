@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { ArrowRight, LayoutDashboard, Rocket, ShoppingBag, Store } from 'lucide-react'
 import { services } from '@/data/services'
-import { projects } from '@/data/projects'
+import { getProject, projects } from '@/data/projects'
+import { testimonials } from '@/data/testimonials'
 import { techGroups } from '@/data/tech'
 import { processStages } from '@/data/process'
 import { faqPreview } from '@/data/faqs'
@@ -66,13 +67,13 @@ export function ServicesOverview() {
             id="services-heading"
             eyebrow="Specialized Capabilities"
             title="What I can build for you"
-            description="Three focused service areas, each scoped to your requirements rather than a one-size-fits-all package."
+            description="Four focused service areas, each scoped to your requirements rather than a one-size-fits-all package."
           />
           <ButtonLink href="/services" variant="secondary" className="shrink-0">
             Explore All Services
           </ButtonLink>
         </div>
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
+        <ul className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, i) => (
             <Reveal as="li" key={service.slug} delay={i * 80}>
               <ServiceCard service={service} />
@@ -92,8 +93,8 @@ export function FeaturedProjects() {
         <SectionHeading
           id="work-heading"
           eyebrow="Selected work"
-          title="Featured Projects & Open Source"
-          description="Production MERN applications, real-time collaboration platforms, and open-source NPM packages."
+          title="Featured Projects"
+          description="Client websites, Shopify stores and web applications live in production."
         />
         <ButtonLink href="/projects" variant="secondary" className="shrink-0">
           View Projects
@@ -106,6 +107,43 @@ export function FeaturedProjects() {
           </Reveal>
         ))}
       </ul>
+    </section>
+  )
+}
+
+export function Testimonials() {
+  if (testimonials.length === 0) return null
+  return (
+    <section aria-labelledby="testimonials-heading" className="border-t border-border bg-surface py-20 md:py-28">
+      <div className="container-page">
+        <SectionHeading
+          id="testimonials-heading"
+          eyebrow="Client feedback"
+          title="What clients say"
+          align="center"
+        />
+        <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t, i) => {
+            const project = t.projectSlug ? getProject(t.projectSlug) : undefined
+            return (
+              <Reveal as="li" key={t.name + i} delay={i * 60}>
+                <figure className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
+                  <blockquote className="flex-1 text-pretty leading-relaxed text-foreground/90">“{t.quote}”</blockquote>
+                  <figcaption className="mt-6 border-t border-border pt-4 text-sm">
+                    <p className="font-semibold text-foreground">{t.name}</p>
+                    <p className="text-muted-foreground">{t.role}</p>
+                    {project && (
+                      <Link href={`/projects/${project.slug}`} className="mt-2 inline-block text-primary hover:underline">
+                        View project
+                      </Link>
+                    )}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            )
+          })}
+        </ul>
+      </div>
     </section>
   )
 }

@@ -1,8 +1,8 @@
-import { Building2, Code2, ShoppingBag } from 'lucide-react'
+import { Bot, Building2, Code2, ShoppingBag } from 'lucide-react'
 import type { ServiceIcon as ServiceIconKey } from '@/data/services'
 import { cn } from '@/lib/utils'
 
-const icons = { code: Code2, store: ShoppingBag, building: Building2 }
+const icons = { code: Code2, store: ShoppingBag, building: Building2, bot: Bot }
 
 export function ServiceIcon({ icon, className }: { icon: ServiceIconKey; className?: string }) {
   const Icon = icons[icon]

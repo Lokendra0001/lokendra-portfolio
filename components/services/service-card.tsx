@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Check, Code2, ShoppingBag, Building2, Sparkles } from 'lucide-react'
+import { ArrowRight, Bot, Check, Code2, ShoppingBag, Building2, Sparkles } from 'lucide-react'
 import type { Service, ServiceIcon as ServiceIconType } from '@/data/services'
 import { cn } from '@/lib/utils'
 
@@ -37,6 +37,14 @@ const serviceThemes: Record<
     iconColor: 'text-blue-600 dark:text-blue-400',
     accentColor: 'text-blue-600 dark:text-blue-400',
     Icon: Building2,
+  },
+  bot: {
+    badge: 'AI & Automation',
+    gradient: 'from-violet-500/10 via-purple-500/5 to-transparent',
+    iconBg: 'bg-violet-500/10 border-violet-500/25',
+    iconColor: 'text-violet-600 dark:text-violet-400',
+    accentColor: 'text-violet-600 dark:text-violet-400',
+    Icon: Bot,
   },
 }
 

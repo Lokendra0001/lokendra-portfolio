@@ -1,6 +1,6 @@
 import { ArrowRight, Download } from 'lucide-react'
 import { ButtonLink, buttonClasses } from '@/components/common/button-link'
-import { ProjectPreview } from '@/components/projects/project-preview'
+import { BrowserFrame } from '@/components/projects/project-preview'
 import { isConfigured, siteConfig } from '@/lib/site-config'
 import { HERO_CONTENT } from '@/config/constant'
 
@@ -36,21 +36,41 @@ function CodePanel() {
   )
 }
 
+/** Real project dashboard screenshot in a browser frame (personal details replaced with sample data). */
+function DashboardShot({ src, width, height }: { src: string; width: number; height: number }) {
+  return (
+    <BrowserFrame url="">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt="" width={width} height={height} className="block h-auto w-full" />
+    </BrowserFrame>
+  )
+}
+
+const aurachatShot = (
+  <DashboardShot
+    src="/images/projects/aurachat-dashboard.webp"
+    width={1918}
+    height={869}
+  />
+)
+
 function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-xl 2xl:max-w-2xl" aria-hidden="true">
       <div className="pointer-events-none absolute -inset-10 rounded-full bg-primary/15 blur-3xl" />
       {/* Layered perspective version on large screens; flat single mockup on small screens */}
-      <div className="relative lg:hidden">
-        <ProjectPreview variant="dashboard" />
-      </div>
+      <div className="relative lg:hidden">{aurachatShot}</div>
       <div className="relative hidden h-[460px] 2xl:h-[520px] [perspective:1600px] lg:block">
         <div className="absolute inset-0 [transform-style:preserve-3d] [transform:rotateY(-14deg)_rotateX(6deg)]">
           <div className="absolute left-0 top-6 w-[86%] [transform:translateZ(0px)]">
-            <ProjectPreview variant="dashboard" />
+            {aurachatShot}
           </div>
-          <div className="animate-float-slow absolute right-0 top-[210px] 2xl:top-[240px] w-[58%] [transform:translateZ(60px)]">
-            <ProjectPreview variant="store" />
+          <div className="absolute right-0 top-[210px] 2xl:top-[240px] w-[58%] [transform:translateZ(60px)]">
+            <DashboardShot
+              src="/images/projects/samarth-dashboard.webp"
+              width={1920}
+              height={841}
+            />
           </div>
           <div className="absolute -left-6 top-[300px] 2xl:top-[340px] w-[52%] [transform:translateZ(90px)]">
             <CodePanel />

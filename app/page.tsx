@@ -5,6 +5,7 @@ import {
   IntroSection,
   ProcessPreview,
   ServicesOverview,
+  Testimonials,
   TechStackSection,
   WhoIWorkWith,
 } from '@/components/home/home-sections'
@@ -17,6 +18,7 @@ export default function HomePage() {
       <IntroSection />
       <ServicesOverview />
       <FeaturedProjects />
+      <Testimonials />
       <TechStackSection />
       <ProcessPreview />
       <WhoIWorkWith />

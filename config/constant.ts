@@ -43,7 +43,7 @@ export const PROFILE_PHOTO = "/images/developer.jpg";
 // ---------------------------------------------------------------------------
 // 5. PRODUCTION SITE METADATA
 // ---------------------------------------------------------------------------
-export const SITE_URL = "https://lokendra-portfolio-six.vercel.app";
+export const SITE_URL = "https://lokendra.is-a.dev";
 export const SITE_TITLE =
   "Lokendra Rajpurohit — Full-Stack Developer | Custom Websites, Shopify & Web Apps";
 export const SITE_DESCRIPTION =
@@ -58,7 +58,7 @@ export const HERO_HEADLINE =
 export const HERO_SUBTITLE =
   "I build responsive business websites, custom web applications, and Shopify storefronts with a focus on usability, performance, and maintainable code.";
 export const HERO_TECH_STACK =
-  "Full-Stack Developer · MERN · Next.js · Shopify · PostgreSQL · DevOps";
+  "Full-Stack Developer · MERN · Next.js · Shopify · AI Automation · Docker";
 
 // ---------------------------------------------------------------------------
 // 7. STRUCTURED CAPITAL OBJECTS

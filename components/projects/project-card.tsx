@@ -46,14 +46,17 @@ export function ProjectCard({
             <span className="size-1.5 rounded-full bg-border-strong" />
             <span className="size-1.5 rounded-full bg-border-strong" />
           </span>
-          <span className="mx-auto max-w-[70%] truncate rounded-md bg-card px-2 py-px font-mono text-[10px] text-muted-foreground">
-            {hostnameOf(primaryUrl)}
-          </span>
+          {project.liveUrl ? (
+            <span className="mx-auto max-w-[70%] truncate rounded-md bg-card px-2 py-px font-mono text-[10px] text-muted-foreground">
+              {hostnameOf(project.liveUrl)}
+            </span>
+          ) : (
+            <span className="mx-auto" />
+          )}
           <span className="w-[22px]" aria-hidden="true" />
         </div>
         <div className="relative aspect-[16/10] overflow-hidden">
           <ProjectCardVisual
-            variant={project.preview}
             image={project.image}
             imageDark={project.imageDark}
             title={name}

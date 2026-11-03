@@ -54,6 +54,10 @@ export const viewport: Viewport = {
   ],
 }
 
+// Runs before first paint so a saved light/dark choice never flashes the other theme.
+// Keep the storage key and class names in sync with components/layout/theme-toggle.tsx.
+const themeInitScript = `try{var t=localStorage.getItem('theme-preference');if(t==='dark'||t==='light')document.documentElement.classList.add(t)}catch(e){}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -62,7 +66,11 @@ export default function RootLayout({
       lang="en"
       id="top"
       className={`${inter.variable} ${display.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="flex min-h-dvh flex-col antialiased">
         <SiteHeader />
         <main id="main" className="flex-1">

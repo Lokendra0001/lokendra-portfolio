@@ -12,7 +12,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata = pageMetadata({
   title: 'Services',
   description:
-    'MERN stack web applications, Shopify store development, and business websites — explained in plain language with clear deliverables.',
+    'Custom web applications, Shopify store development, business websites and AI automation — explained in plain language with clear deliverables.',
   path: '/services',
 })
 
